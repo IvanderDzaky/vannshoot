@@ -1,0 +1,40 @@
+@reference "tailwindcss";
+
+.navbarFixed {
+  @apply fixed z-[9999] bg-white/70 shadow-md;
+  backdrop-filter: blur(10px);
+}
+
+.hamburgerLine {
+  @apply w-[30px] h-[2px] my-2 block bg-black;
+}
+
+.hamburgerActive > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburgerActive > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburgerActive > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+.navLink {
+  @apply relative py-2 text-zinc-600 dark:text-zinc-400 font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400;
+}
+
+.navLink::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300;
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  @apply w-full;
+}
+
+.navLinkActive {
+  @apply text-blue-600 dark:text-blue-400;
+}

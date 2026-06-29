@@ -1,0 +1,232 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  emailVerified Boolean   @default(false) @map("email_verified")
+  image         String?
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  role          String?
+  banned        Boolean?  @default(false)
+  banReason     String?   @map("ban_reason")
+  banExpires    DateTime? @map("ban_expires")
+  roleId        String?   @map("role_id")
+  accounts      Account[]
+  sessions      Session[]
+  roles         Role[]    @relation("RoleToUser")
+
+  @@map("users")
+}
+
+model Session {
+  id             String   @id @default(uuid())
+  expiresAt      DateTime @map("expires_at")
+  token          String   @unique
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+  ipAddress      String?  @map("ip_address")
+  userAgent      String?  @map("user_agent")
+  userId         String   @map("user_id")
+  impersonatedBy String?  @map("impersonated_by")
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id @default(uuid())
+  accountId             String    @map("account_id")
+  providerId            String    @map("provider_id")
+  userId                String    @map("user_id")
+  accessToken           String?   @map("access_token")
+  refreshToken          String?   @map("refresh_token")
+  idToken               String?   @map("id_token")
+  accessTokenExpiresAt  DateTime? @map("access_token_expires_at")
+  refreshTokenExpiresAt DateTime? @map("refresh_token_expires_at")
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @updatedAt @map("updated_at")
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(uuid())
+  identifier String
+  value      String
+  expiresAt  DateTime @map("expires_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@index([identifier])
+  @@map("verifications")
+}
+
+model Permission {
+  id                    String                @id @default(uuid())
+  name                  String                @unique
+  description           String?
+  roles                 Role[]                @relation("PermissionToRole")
+  model_has_permissions ModelHasPermissions[]
+  role_has_permissions  RoleHasPermission[]
+  createdAt             DateTime              @default(now()) @map("created_at")
+  updatedAt             DateTime              @updatedAt @map("updated_at")
+
+  @@map("permissions")
+}
+
+model Role {
+  id                  String                @id @default(uuid())
+  name                String                @unique
+  description         String?
+  users               User[]                @relation("RoleToUser")
+  permissions         Permission[]          @relation("PermissionToRole")
+  roleHasPermissions  RoleHasPermission[]
+  modelHasPermissions ModelHasPermissions[]
+  createdAt           DateTime              @default(now()) @map("created_at")
+  updatedAt           DateTime              @updatedAt @map("updated_at")
+  @@map("roles")
+}
+
+model RoleHasPermission {
+  roleId       String     @map("role_id")
+  permissionId String     @map("permission_id")
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permissions  Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@id([roleId, permissionId])
+  @@map("role_has_permissions")
+}
+
+model ModelHasPermissions {
+  modelId      String     @map("model_id")
+  modelType    String     @map("model_type")
+  permissionId String     @map("permission_id")
+  permissions  Permission @relation(fields: [permissionId], references: [id])
+  role         Role?      @relation(fields: [roleId], references: [id])
+  roleId       String?
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@id([modelId, modelType, permissionId])
+  @@map("model_has_permissions")
+}
+
+model Client {
+  id          String           @id @default(uuid())
+  name        String
+  description String?
+  image       String?
+  categories  ClientCategory[]
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  @@map("clients")
+}
+
+model ClientCategory {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  clients   Client[]
+
+  @@map("client_categories")
+}
+
+model Portfolio {
+  id          String              @id @default(uuid())
+  title       String
+  description String?
+  cover       String?
+  images      PortfolioImage[]
+  city        String?
+  location    String?
+  categories  PortfolioCategory[]
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+  orders      Order[]
+
+  @@map("portfolios")
+}
+
+model PortfolioCategory {
+  id          String      @id @default(uuid())
+  title       String
+  description String?
+  cover       String?
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+  portfolios  Portfolio[]
+
+  @@map("portfolio_categories")
+}
+
+model PortfolioImage {
+  id          String    @id @default(uuid())
+  image       String
+  filename    String
+  portfolioId String
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("portfolio_images")
+}
+
+model Order {
+  id             String      @id @default(uuid())
+  name_customer  String
+  email_customer String
+  phone_customer String
+  type           OrderType   @default(PRODUCT)
+  portfolioId    String
+  total_price    Float
+  status         OrderStatus @default(PENDING)
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt @map("updated_at")
+  portfolio      Portfolio   @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  cover     String?
+  client    String
+  testimony String
+  location  String
+  city      String
+  redirect  String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("testimonials")
+}
+
+enum OrderStatus {
+  PENDING
+  WAITING_CONFIRMATION
+  CONFIRMED
+  CANCELLED
+}
+
+enum OrderType {
+  PRODUCT
+  SERVICE
+}

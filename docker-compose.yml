@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+    env_file:
+      - .env
+    volumes:
+      - /home/grendy/nextjs-cms/public:/app/public
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+      - /home/grendy/nextjs-cms/public:/usr/share/nginx/html/public:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+
+networks:
+  default:
+    name: nextjs-cms_default
+    external: true
