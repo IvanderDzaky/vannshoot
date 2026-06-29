@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "check-types": "npm check-types",
-    "setup:db": "npm prisma migrate reset --force && npm prisma migrate dev --force && npm prisma db seed --force"
+    "setup:db": "npx prisma migrate reset && npx prisma migrate dev && npx prisma generate && npx prisma db seed"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
