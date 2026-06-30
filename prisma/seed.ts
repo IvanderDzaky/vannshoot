@@ -42,6 +42,9 @@ async function main() {
     { name: 'order.create', description: 'Membuat order baru' },
     { name: 'order.update', description: 'Mengubah data order' },
     { name: 'order.delete', description: 'Menghapus order' },
+    { name: 'order.settings.read', description: 'Melihat daftar order settings' },
+    { name: 'order.settings.create', description: 'Membuat order settings' },
+    { name: 'order.settings.update', description: 'Mengubah data order settings' },
     { name: 'admin.access', description: 'Mengakses dashboard admin' },
   ];
 

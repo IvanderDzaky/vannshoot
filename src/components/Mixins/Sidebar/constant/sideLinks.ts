@@ -75,7 +75,13 @@ export const sideLinks: SideLinks = {
       icon: ShoppingBag,
       items: [
         {
-          title: 'Orders',
+          title: 'Pengaturan Order',
+          url: 'transactions/order-settings',
+          icon: ShoppingBag,
+          permission: 'order.settings.read',
+        },
+        {
+          title: 'Order',
           url: 'transactions/orders',
           icon: ShoppingBag,
           permission: 'order.read',
