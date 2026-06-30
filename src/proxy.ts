@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/login');
 
-  const cmsSegments = ['managements']; // perlu ditambahkan
+  const cmsSegments = ['master', 'services', 'managements', 'transactions']; // perlu ditambahkan
   const isCMSPath = cmsSegments.some((segment) => pathname.startsWith(`/admin/${segment}`));
 
   // Jika bukan path yang diproteksi, langsung lewat saja (optimasi)
@@ -96,6 +96,7 @@ export async function proxy(request: NextRequest) {
     if (isCMSPath && isAuthenticated) {
       const redirectMap: Record<string, string> = {
         '/admin/managements': '/admin/managements/permissions',
+        '/admin/transactions': '/admin/transactions/orders',
       };
 
       // Cek apakah URL persis sama dengan key redirect map

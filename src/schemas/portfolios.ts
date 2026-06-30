@@ -6,6 +6,7 @@ export const portfolioSchema = z.object({
   cover: z.string().nullable().optional(),
   images: z.array(z.string()),
   city: z.string().min(1, 'Kota wajib diisi'),
+  location: z.string().min(1, 'Lokasi wajib diisi').nullable().optional(),
   categoryIds: z.array(z.string()),
   price: z.number().min(0, 'Harga harus positif atau 0').nullable().optional(),
 });
