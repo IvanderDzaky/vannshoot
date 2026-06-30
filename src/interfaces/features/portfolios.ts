@@ -7,9 +7,8 @@ export interface Portfolio {
   cover: string | null;
   images: string[];
   city: string | null;
-  hasVideo: boolean;
-  videoUrl: string | null;
   categories: PortfolioCategory[];
+  price: number | null;
   createdAt: Date;
   updatedAt: Date;
 }

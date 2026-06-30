@@ -79,6 +79,29 @@ const Columns: ColumnDef<Portfolio>[] = [
     },
   },
   {
+    accessorKey: 'price',
+    header: ({ column }) => (
+      <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+        Harga / Foto
+        <ChevronsUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => {
+      const price = row.original.price;
+      if (price === null || price === undefined)
+        return <span className="text-sm text-muted-foreground">-</span>;
+      return (
+        <span className="text-sm font-medium">
+          {new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+          }).format(price)}
+        </span>
+      );
+    },
+  },
+  {
     accessorKey: 'updatedAt',
     header: ({ column }) => (
       <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
@@ -136,11 +159,6 @@ const PortfolioTitleCell = ({ row }: { row: { original: Portfolio } }) => {
           {row.original.images.length > 0 && (
             <div className="absolute bottom-0 right-0 bg-black/60 text-[8px] text-white px-1 rounded-tl z-10">
               +{row.original.images.length}
-            </div>
-          )}
-          {row.original.hasVideo && (
-            <div className="absolute top-1 right-1 bg-primary text-primary-foreground p-0.5 rounded-full z-10">
-              <Video className="h-3 w-3" />
             </div>
           )}
         </div>

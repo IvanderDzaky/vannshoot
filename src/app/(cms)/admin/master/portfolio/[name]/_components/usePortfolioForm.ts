@@ -65,9 +65,8 @@ export const usePortfolioForm = (initialData: Portfolio | null) => {
           cover: initialData.cover || '',
           images: initialData.images || [],
           city: initialData.city || '',
-          hasVideo: initialData.hasVideo || false,
-          videoUrl: initialData.videoUrl || '',
           categoryIds: initialData.categories.map((c) => c.id) || [],
+          price: initialData.price || 0,
         }
       : {
           title: '',
@@ -75,9 +74,8 @@ export const usePortfolioForm = (initialData: Portfolio | null) => {
           cover: '',
           images: [],
           city: '',
-          hasVideo: false,
-          videoUrl: '',
           categoryIds: [],
+          price: 0,
         },
   });
 
@@ -252,26 +250,5 @@ export const usePortfolioForm = (initialData: Portfolio | null) => {
     tempFileName,
     submitMutation,
     deleteMutation,
-  } as {
-    form: UseFormReturn<PortfolioFormValues>;
-    onSubmit: (values: PortfolioFormValues) => void;
-    onDelete: () => void;
-    handleBack: () => void;
-    handleDrop: (file: File, folder?: string) => Promise<void>;
-    onNewUpload: (url: string) => void;
-    isUploading: boolean;
-    setIsUploading: (loading: boolean) => void;
-    isDragging: boolean;
-    setIsDragging: (loading: boolean) => void;
-    isAlertOpen: boolean;
-    setIsAlertOpen: (open: boolean) => void;
-    isCropperOpen: boolean;
-    setIsCropperOpen: (open: boolean) => void;
-    cropperImageSrc: string | null;
-    handleCroppedImage: (file: File, folder?: string) => void;
-    handleRemoveImage: () => void;
-    tempFileName: string;
-    submitMutation: UseMutationResult<PortfolioResponse, Error, PortfolioFormValues>;
-    deleteMutation: UseMutationResult<PortfolioResponse | undefined, Error, void>;
   };
 };

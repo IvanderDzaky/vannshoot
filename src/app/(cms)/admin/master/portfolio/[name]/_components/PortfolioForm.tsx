@@ -104,11 +104,6 @@ const PortfolioForm: FC<Props> = ({ initialData }) => {
     if (file) handleDrop(file, targetFolder);
   };
 
-  const hasVideo = useWatch({
-    control: form.control,
-    name: 'hasVideo',
-  });
-
   return (
     <section
       className="relative min-h-[calc(100vh-200px)] group/dropzone"
@@ -192,6 +187,30 @@ const PortfolioForm: FC<Props> = ({ initialData }) => {
               />
 
               <Controller
+                name="price"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>
+                      Harga per Gambar (Rp) <span className="text-red-600">*</span>
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      type="number"
+                      value={field.value ?? ''}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        field.onChange(val === '' ? null : Number(val));
+                      }}
+                      aria-invalid={fieldState.invalid}
+                      placeholder="Contoh: 7000"
+                    />
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )}
+              />
+
+              <Controller
                 name="categoryIds"
                 control={form.control}
                 render={({ field, fieldState }) => (
@@ -253,43 +272,6 @@ const PortfolioForm: FC<Props> = ({ initialData }) => {
                   </Field>
                 )}
               />
-
-              <div className="space-y-4 pt-4 border-t border-dashed">
-                <Controller
-                  name="hasVideo"
-                  control={form.control}
-                  render={({ field }) => (
-                    <div className="flex items-center justify-between rounded-lg border p-4 bg-muted/30">
-                      <div className="space-y-0.5">
-                        <FieldLabel className="text-base">Sematkan Video</FieldLabel>
-                        <p className="text-[10px] text-muted-foreground">
-                          Aktifkan jika portfolio ini memiliki video (YouTube/Vimeo/dsb).
-                        </p>
-                      </div>
-                      <Switch checked={field.value} onCheckedChange={field.onChange} />
-                    </div>
-                  )}
-                />
-
-                {hasVideo && (
-                  <Controller
-                    name="videoUrl"
-                    control={form.control}
-                    render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel>URL Video</FieldLabel>
-                        <Input
-                          {...field}
-                          value={field.value ?? ''}
-                          aria-invalid={fieldState.invalid}
-                          placeholder="https://www.youtube.com/watch?v=..."
-                        />
-                        {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                      </Field>
-                    )}
-                  />
-                )}
-              </div>
             </FieldGroup>
           </div>
 

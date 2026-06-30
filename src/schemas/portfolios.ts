@@ -6,9 +6,8 @@ export const portfolioSchema = z.object({
   cover: z.string().nullable().optional(),
   images: z.array(z.string()),
   city: z.string().min(1, 'Kota wajib diisi'),
-  hasVideo: z.boolean(),
-  videoUrl: z.string().url('URL video tidak valid').or(z.literal('')).nullable().optional(),
   categoryIds: z.array(z.string()),
+  price: z.number().min(0, 'Harga harus positif atau 0').nullable().optional(),
 });
 
 export type PortfolioFormValues = z.infer<typeof portfolioSchema>;

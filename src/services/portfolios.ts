@@ -56,14 +56,20 @@ export async function getPortfolios(
         orderBy: { createdAt: 'desc' },
         include: {
           categories: true,
+          images: true,
         },
       }),
       prisma.portfolio.count({ where }),
     ]);
 
+    const mappedData = data.map((portfolio) => ({
+      ...portfolio,
+      images: portfolio.images.map((img) => img.image),
+    }));
+
     return {
       success: true,
-      data: data as unknown as Portfolio[],
+      data: mappedData as unknown as Portfolio[],
       meta: {
         total,
         page,
@@ -95,6 +101,7 @@ export async function getPortfolioById(id: string): Promise<PortfolioResponse> {
       where: { id },
       include: {
         categories: true,
+        images: true,
       },
     });
 
@@ -102,7 +109,12 @@ export async function getPortfolioById(id: string): Promise<PortfolioResponse> {
       return { success: false, error: 'Portfolio tidak ditemukan.' };
     }
 
-    return { success: true, data: portfolio as unknown as Portfolio };
+    const mappedPortfolio = {
+      ...portfolio,
+      images: portfolio.images.map((img) => img.image),
+    };
+
+    return { success: true, data: mappedPortfolio as unknown as Portfolio };
   } catch (error) {
     return { success: false, error: 'Gagal mengambil data portfolio.' };
   }
@@ -123,8 +135,7 @@ export async function createPortfolio(values: PortfolioValues): Promise<Portfoli
   }
 
   try {
-    const { title, description, cover, images, city, hasVideo, videoUrl, categoryIds } =
-      validatedFields.data;
+    const { title, description, cover, images, city, categoryIds, price } = validatedFields.data;
 
     // Validasi: Cek apakah judul sudah ada
     const existingPortfolio = await prisma.portfolio.findFirst({
@@ -160,22 +171,35 @@ export async function createPortfolio(values: PortfolioValues): Promise<Portfoli
         title,
         description,
         cover: finalCover,
-        images: finalImages,
+        price: price || null,
+        images: {
+          create: finalImages.map((image) => ({
+            image,
+            filename: image.split('/').pop() || '',
+          })),
+        },
         city: city || null,
-        hasVideo,
-        videoUrl: videoUrl || '',
         categories: {
           connect: categoryIds.map((id) => ({ id })),
         },
       },
+      include: {
+        categories: true,
+        images: true,
+      },
     });
+
+    const mappedPortfolio = {
+      ...portfolio,
+      images: portfolio.images.map((img) => img.image),
+    };
 
     revalidatePath(BASE_PATH);
     revalidatePath('/', 'layout');
     return {
       success: true,
       message: 'Portfolio berhasil dibuat.',
-      data: portfolio as unknown as Portfolio,
+      data: mappedPortfolio as unknown as Portfolio,
     };
   } catch (error) {
     console.error('Create Portfolio Error:', error);
@@ -201,13 +225,12 @@ export async function updatePortfolio(
   }
 
   try {
-    const { title, description, cover, images, city, hasVideo, videoUrl, categoryIds } =
-      validatedFields.data;
+    const { title, description, cover, images, city, categoryIds, price } = validatedFields.data;
 
     // Cari data lama untuk cleanup
     const oldPortfolio = await prisma.portfolio.findUnique({
       where: { id },
-      include: { categories: true },
+      include: { categories: true, images: true },
     });
 
     if (!oldPortfolio) {
@@ -258,24 +281,53 @@ export async function updatePortfolio(
       );
     }
 
+    // Hitung gambar yang dihapus
+    const oldImageUrls = oldPortfolio.images.map((img) => img.image);
+    const removedImages = oldImageUrls.filter((imgUrl) => !images.includes(imgUrl));
+
+    // Hapus gambar yang dihilangkan dari database
+    if (removedImages.length > 0) {
+      await prisma.portfolioImage.deleteMany({
+        where: {
+          portfolioId: id,
+          image: { in: removedImages },
+        },
+      });
+    }
+
+    // Hitung gambar baru yang akan ditambah
+    const newImageUrls = finalImages.filter((imgUrl) => !oldImageUrls.includes(imgUrl));
+
     const portfolio = await prisma.portfolio.update({
       where: { id },
       data: {
         title,
         description,
         cover: finalCover,
-        images: finalImages,
+        price: price || null,
         city: city || null,
-        hasVideo,
-        videoUrl: videoUrl || '',
         categories: {
           set: categoryIds.map((id) => ({ id })),
         },
+        images: {
+          create: newImageUrls.map((image) => ({
+            image,
+            filename: image.split('/').pop() || '',
+          })),
+        },
+      },
+      include: {
+        categories: true,
+        images: true,
       },
     });
 
-    // Cleanup images yang tidak dipakai lagi
-    const removedImages = oldPortfolio.images.filter((img) => !images.includes(img));
+    const mappedPortfolio = {
+      ...portfolio,
+      images: portfolio.images.map((img) => img.image),
+    };
+
+    // Cleanup files dari filesystem
     for (const img of removedImages) {
       await deleteImage(img);
     }
