@@ -135,7 +135,8 @@ export async function createPortfolio(values: PortfolioValues): Promise<Portfoli
   }
 
   try {
-    const { title, description, cover, images, city, categoryIds, price } = validatedFields.data;
+    const { title, description, cover, images, city, location, categoryIds, price } =
+      validatedFields.data;
 
     // Validasi: Cek apakah judul sudah ada
     const existingPortfolio = await prisma.portfolio.findFirst({
@@ -179,6 +180,7 @@ export async function createPortfolio(values: PortfolioValues): Promise<Portfoli
           })),
         },
         city: city || null,
+        location: location || null,
         categories: {
           connect: categoryIds.map((id) => ({ id })),
         },
@@ -225,7 +227,8 @@ export async function updatePortfolio(
   }
 
   try {
-    const { title, description, cover, images, city, categoryIds, price } = validatedFields.data;
+    const { title, description, cover, images, city, location, categoryIds, price } =
+      validatedFields.data;
 
     // Cari data lama untuk cleanup
     const oldPortfolio = await prisma.portfolio.findUnique({
@@ -306,6 +309,7 @@ export async function updatePortfolio(
         cover: finalCover,
         price: price || null,
         city: city || null,
+        location: location || null,
         categories: {
           set: categoryIds.map((id) => ({ id })),
         },

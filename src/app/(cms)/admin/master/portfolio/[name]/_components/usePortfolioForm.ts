@@ -65,6 +65,7 @@ export const usePortfolioForm = (initialData: Portfolio | null) => {
           cover: initialData.cover || '',
           images: initialData.images || [],
           city: initialData.city || '',
+          location: initialData.location || '',
           categoryIds: initialData.categories.map((c) => c.id) || [],
           price: initialData.price || 0,
         }
@@ -74,6 +75,7 @@ export const usePortfolioForm = (initialData: Portfolio | null) => {
           cover: '',
           images: [],
           city: '',
+          location: '',
           categoryIds: [],
           price: 0,
         },

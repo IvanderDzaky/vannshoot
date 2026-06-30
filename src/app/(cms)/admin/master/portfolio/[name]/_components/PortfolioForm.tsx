@@ -167,24 +167,45 @@ const PortfolioForm: FC<Props> = ({ initialData }) => {
                 )}
               />
 
-              <Controller
-                name="city"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel>
-                      Kota <span className="text-red-600">*</span>
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      value={field.value ?? ''}
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Contoh: Jakarta"
-                    />
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                  </Field>
-                )}
-              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Controller
+                  name="location"
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel>
+                        Lokasi <span className="text-red-600">*</span>
+                      </FieldLabel>
+                      <Input
+                        {...field}
+                        value={field.value ?? ''}
+                        aria-invalid={fieldState.invalid}
+                        placeholder="Contoh: KFC Kawi"
+                      />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )}
+                />
+
+                <Controller
+                  name="city"
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel>
+                        Kota <span className="text-red-600">*</span>
+                      </FieldLabel>
+                      <Input
+                        {...field}
+                        value={field.value ?? ''}
+                        aria-invalid={fieldState.invalid}
+                        placeholder="Contoh: Malang"
+                      />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )}
+                />
+              </div>
 
               <Controller
                 name="price"
