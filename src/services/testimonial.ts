@@ -156,15 +156,6 @@ export async function updateTestimonial(
   }
 
   try {
-    const oldTestimonial = await prisma.testimonial.findUnique({
-      where: { id },
-      select: { cover: true },
-    });
-
-    if (!oldTestimonial) {
-      return { success: false, error: 'Testimonial tidak ditemukan.' };
-    }
-
     const testimonial = await prisma.testimonial.update({
       where: { id },
       data: {
@@ -172,11 +163,6 @@ export async function updateTestimonial(
         redirect: validatedFields.data.redirect || null,
       },
     });
-
-    // Cleanup image lama jika diganti
-    if (oldTestimonial.cover && oldTestimonial.cover !== values.cover) {
-      await deleteImage(oldTestimonial.cover);
-    }
 
     revalidatePath(BASE_PATH);
     revalidatePath('/', 'layout');
@@ -201,20 +187,16 @@ export async function deleteTestimonial(id: string): Promise<TestimonialResponse
   }
 
   try {
-    const testimonial = await prisma.testimonial.findUnique({
+    const existing = await prisma.testimonial.findUnique({
       where: { id },
-      select: { cover: true },
+      select: { id: true },
     });
 
-    if (!testimonial) {
+    if (!existing) {
       return { success: false, error: 'Testimonial tidak ditemukan.' };
     }
 
     await prisma.testimonial.delete({ where: { id } });
-
-    if (testimonial.cover) {
-      await deleteImage(testimonial.cover);
-    }
 
     revalidatePath(BASE_PATH);
     revalidatePath('/', 'layout');
@@ -235,20 +217,9 @@ export async function deleteBulkTestimonials(ids: string[]): Promise<Testimonial
   }
 
   try {
-    const testimonials = await prisma.testimonial.findMany({
-      where: { id: { in: ids } },
-      select: { cover: true },
-    });
-
     await prisma.testimonial.deleteMany({
       where: { id: { in: ids } },
     });
-
-    for (const item of testimonials) {
-      if (item.cover) {
-        await deleteImage(item.cover);
-      }
-    }
 
     revalidatePath(BASE_PATH);
     revalidatePath('/', 'layout');

@@ -1,6 +1,5 @@
 export interface Testimonial {
   id: string;
-  cover: string | null;
   client: string;
   testimony: string;
   location: string;

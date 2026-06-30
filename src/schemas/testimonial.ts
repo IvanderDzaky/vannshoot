@@ -8,7 +8,6 @@ export const testimonialSchema = z.object({
     .max(1000, 'Testimonial maksimal 1000 karakter'),
   location: z.string().min(1, 'Location is required'),
   city: z.string().min(1, 'City is required'),
-  cover: z.string().nullable().optional(),
   redirect: z.string().nullable().optional(),
 });
 
