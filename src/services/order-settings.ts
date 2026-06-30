@@ -99,3 +99,33 @@ export async function updateOrderSetting(values: OrderSettingFormValues) {
     };
   }
 }
+
+/**
+ * Mendapatkan konfigurasi order setting secara publik (tanpa cek hak akses admin).
+ */
+export async function getPublicOrderSetting() {
+  try {
+    let setting = await prisma.orderSetting.findFirst();
+
+    if (!setting) {
+      setting = await prisma.orderSetting.create({
+        data: {
+          serviceCharge: false,
+          serviceType: 'FIXED',
+          value: 0,
+        },
+      });
+    }
+
+    return {
+      success: true,
+      data: setting,
+    };
+  } catch (error) {
+    console.error('Get Public Order Setting Error:', error);
+    return {
+      success: false,
+      error: 'Gagal mengambil data pengaturan order.',
+    };
+  }
+}

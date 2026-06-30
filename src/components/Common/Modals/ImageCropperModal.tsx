@@ -1,12 +1,18 @@
 'use client';
 import { useState, useRef, useEffect, type FC } from 'react';
-import { Cropper, type CropperRef, ImageRestriction } from 'react-advanced-cropper';
+import dynamic from 'next/dynamic';
+import { type CropperRef } from 'react-advanced-cropper';
 import { Scissors, Check, X, Loader2 } from 'lucide-react';
 import 'react-advanced-cropper/dist/style.css';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Modal from './Modal';
+
+// Load Cropper dynamically with SSR disabled to prevent Canvas/document errors in Next.js
+const Cropper = dynamic(() => import('react-advanced-cropper').then((mod) => mod.Cropper), {
+  ssr: false,
+});
 
 interface ImageCropperModalProps {
   isOpen: boolean;
@@ -30,19 +36,31 @@ const ImageCropperModal: FC<ImageCropperModalProps> = ({
   customFileName = 'cropped-image',
 }) => {
   const cropperRef = useRef<CropperRef>(null);
-  const [imageWidth, setImageWidth] = useState<number>(0);
-  const [imageHeight, setImageHeight] = useState<number>(0);
+  const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentAspectRatio, setCurrentAspectRatio] = useState<number | undefined>(aspectRatio);
-  const [containerAspectRatio, setContainerAspectRatio] = useState<number>(aspectRatio || 16 / 9);
 
-  // Sync state if prop changes or modal opens
+  // Set mounted flag
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Sync aspect ratio when modal opens
   useEffect(() => {
     if (isOpen) {
       setCurrentAspectRatio(aspectRatio);
-      setContainerAspectRatio(aspectRatio || 16 / 9);
     }
   }, [isOpen, aspectRatio]);
+
+  // Refresh cropper geometry once the modal is fully opened to ensure parent bounds are loaded
+  useEffect(() => {
+    if (isOpen && mounted) {
+      const timer = setTimeout(() => {
+        cropperRef.current?.refresh();
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, mounted]);
 
   const handleCrop = () => {
     if (cropperRef.current) {
@@ -83,22 +101,6 @@ const ImageCropperModal: FC<ImageCropperModalProps> = ({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (imageSrc) {
-      const img = new Image();
-      img.onload = () => {
-        setImageWidth(img.naturalWidth);
-        setImageHeight(img.naturalHeight);
-        // Jika tidak ada aspectRatio dari prop (atau saat modal buka ulang),
-        // sesuaikan containerAspectRatio dengan rasio asli gambar agar tidak collaps
-        if (!aspectRatio) {
-          setContainerAspectRatio(img.naturalWidth / img.naturalHeight);
-        }
-      };
-      img.src = imageSrc;
-    }
-  }, [imageSrc, aspectRatio]);
-
   if (!imageSrc) return null;
 
   return (
@@ -110,49 +112,40 @@ const ImageCropperModal: FC<ImageCropperModalProps> = ({
       className="sm:max-w-5xl w-full"
     >
       <div className="mt-2 flex flex-col gap-6 w-full">
-        <div
-          className="relative w-full overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/5 shadow-2xl"
-          style={{
-            // Gunakan rasio aktual gambar jika portrait/kecil, clamp antara 30vh dan 65vh
-            aspectRatio:
-              imageWidth > 0 && imageHeight > 0
-                ? `${imageWidth} / ${imageHeight}`
-                : `${containerAspectRatio}`,
-            minHeight: '200px',
-            maxHeight: '65vh',
-          }}
-        >
-          <Cropper
-            key={currentAspectRatio || 'free'}
-            ref={cropperRef}
-            src={imageSrc}
-            stencilProps={{
-              aspectRatio: currentAspectRatio,
-              grid: true,
-            }}
-            defaultSize={({ imageSize }) => {
-              if (currentAspectRatio) {
-                const imageRatio = imageSize.width / imageSize.height;
-                if (imageRatio > currentAspectRatio) {
-                  return {
-                    width: imageSize.height * currentAspectRatio,
-                    height: imageSize.height,
-                  };
-                } else {
-                  return {
-                    width: imageSize.width,
-                    height: imageSize.width / currentAspectRatio,
-                  };
+        {/* Stable container height ensures cropper has nonzero dimensions to calculate stencil placement */}
+        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[500px] overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/5 shadow-2xl">
+          {mounted && isOpen && (
+            <Cropper
+              key={currentAspectRatio || 'free'}
+              ref={cropperRef}
+              src={imageSrc}
+              stencilProps={{
+                aspectRatio: currentAspectRatio,
+                grid: true,
+              }}
+              defaultSize={({ imageSize }) => {
+                if (currentAspectRatio) {
+                  const imageRatio = imageSize.width / imageSize.height;
+                  if (imageRatio > currentAspectRatio) {
+                    return {
+                      width: imageSize.height * currentAspectRatio,
+                      height: imageSize.height,
+                    };
+                  } else {
+                    return {
+                      width: imageSize.width,
+                      height: imageSize.width / currentAspectRatio,
+                    };
+                  }
                 }
-              }
-              return {
-                width: imageSize.width,
-                height: imageSize.height,
-              };
-            }}
-            className="h-full w-full"
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-          />
+                return {
+                  width: imageSize.width,
+                  height: imageSize.height,
+                };
+              }}
+              className="h-full w-full"
+            />
+          )}
         </div>
 
         {/* Aspect Ratio Selector */}

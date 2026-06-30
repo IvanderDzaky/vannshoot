@@ -304,14 +304,6 @@ const MultiImageUpload: FC<MultiImageUploadProps> = ({
         </button>
       </div>
 
-      {/* Indikator error jika upload macet */}
-      {isLocalUploading && (
-        <p className="text-xs text-amber-600 mt-2 flex items-center gap-1">
-          <Loader2 className="h-3 w-3 animate-spin" />
-          Sedang mengunggah dan mengompresi gambar... Harap tunggu.
-        </p>
-      )}
-
       <p className="text-xs text-muted-foreground mt-2">
         Mendukung pemilihan banyak file sekaligus. Maks. 5MB per file.
       </p>

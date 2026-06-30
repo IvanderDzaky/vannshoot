@@ -1,3 +1,5 @@
+'use server';
+
 import { prisma } from '@/lib/prisma';
 
 /**
@@ -146,7 +148,7 @@ export async function getPublicPortfolioById(id: string) {
 /**
  * Mengkonversi string title menjadi URL-friendly slug
  */
-export function toSlug(title: string): string {
+function toSlug(title: string): string {
   return title
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')

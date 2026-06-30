@@ -56,7 +56,7 @@ const DashboardCMS = async () => {
       value: counts.orders,
       description: 'Pesanan Layanan & Produk',
       icon: ShoppingBag,
-      href: '/admin/services/orders',
+      href: '/admin/transactions/orders',
       colorClass:
         'text-blue-600 dark:text-blue-400 bg-blue-500/10 dark:bg-blue-500/20 border-blue-100 dark:border-blue-950',
     },
@@ -262,7 +262,7 @@ const DashboardCMS = async () => {
                     Pesanan (Orders)
                   </span>
                   <Link
-                    href={'/admin/services/orders' as Route}
+                    href={'/admin/transactions/orders' as Route}
                     className="text-[10px] text-primary hover:underline mt-2 flex items-center justify-center gap-0.5"
                   >
                     Kelola <ExternalLink className="w-2.5 h-2.5" />
