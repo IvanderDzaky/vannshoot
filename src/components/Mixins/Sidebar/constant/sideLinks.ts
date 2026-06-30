@@ -1,4 +1,4 @@
-import { Camera, File, Folder, Home, UserCog, Video, type LucideIcon } from 'lucide-react';
+import { Camera, Folder, Home, ShoppingBag, UserCog, type LucideIcon } from 'lucide-react';
 
 type SideLinks = {
   versions: string[];
@@ -28,63 +28,57 @@ export const sideLinks: SideLinks = {
       icon: Home,
       permission: 'admin.access',
     },
-    // {
-    //   title: 'Data Master',
-    //   url: 'master',
-    //   hasChildren: true,
-    //   icon: Folder,
-    //   items: [
-    //     {
-    //       title: 'Kategori Portofolio',
-    //       url: 'master/portfolio-categories',
-    //       icon: Folder,
-    //       permission: 'portfolio.category.read',
-    //     },
-    //     {
-    //       title: 'Portofolio',
-    //       url: 'master/portfolio',
-    //       icon: Folder,
-    //       permission: 'portfolio.read',
-    //     },
-    //     {
-    //       title: 'YouTube Link',
-    //       url: 'master/youtube-links',
-    //       icon: Video,
-    //       permission: 'youtube.link.read',
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: 'Pelayanan',
-    //   url: 'services',
-    //   hasChildren: true,
-    //   icon: Camera,
-    //   items: [
-    //     {
-    //       title: 'Klien',
-    //       url: 'services/clients',
-    //       icon: Camera,
-    //       permission: 'client.read',
-    //     },
-    //     {
-    //       title: 'Testimoni',
-    //       url: 'services/testimonials',
-    //       icon: Camera,
-    //       permission: 'testimonial.read',
-    //     },
-    //   ],
-    // },
     {
-      title: 'Publikasi',
-      url: 'publications',
+      title: 'Data Master',
+      url: 'master',
       hasChildren: true,
-      icon: File,
+      icon: Folder,
       items: [
         {
-          title: 'Artikel',
-          url: 'publications/articles',
-          icon: File,
-          permission: 'article.read',
+          title: 'Kategori Portofolio',
+          url: 'master/portfolio-categories',
+          icon: Folder,
+          permission: 'portfolio.category.read',
+        },
+        {
+          title: 'Portofolio',
+          url: 'master/portfolio',
+          icon: Folder,
+          permission: 'portfolio.read',
+        },
+      ],
+    },
+    {
+      title: 'Pelayanan',
+      url: 'services',
+      hasChildren: true,
+      icon: Camera,
+      items: [
+        {
+          title: 'Klien',
+          url: 'services/clients',
+          icon: Camera,
+          permission: 'client.read',
+        },
+        {
+          title: 'Testimoni',
+          url: 'services/testimonials',
+          icon: Camera,
+          permission: 'testimonial.read',
+        },
+      ],
+    },
+    {
+      title: 'Transaksi',
+      url: 'transactions',
+      hasChildren: true,
+      icon: ShoppingBag,
+      items: [
+        {
+          title: 'Orders',
+          url: 'transactions/orders',
+          icon: ShoppingBag,
+          permission: 'order.read',
         },
       ],
     },
