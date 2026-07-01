@@ -98,6 +98,7 @@ model Role {
   modelHasPermissions ModelHasPermissions[]
   createdAt           DateTime              @default(now()) @map("created_at")
   updatedAt           DateTime              @updatedAt @map("updated_at")
+
   @@map("roles")
 }
 
@@ -144,7 +145,8 @@ model ClientCategory {
   name      String
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-  clients   Client[]
+
+  clients Client[]
 
   @@map("client_categories")
 }
@@ -158,9 +160,10 @@ model Portfolio {
   city        String?
   location    String?
   categories  PortfolioCategory[]
+  price       Float?
+  orders      Order[]
   createdAt   DateTime            @default(now()) @map("created_at")
   updatedAt   DateTime            @updatedAt @map("updated_at")
-  orders      Order[]
 
   @@map("portfolios")
 }
@@ -170,44 +173,73 @@ model PortfolioCategory {
   title       String
   description String?
   cover       String?
+  portfolios  Portfolio[]
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
-  portfolios  Portfolio[]
 
   @@map("portfolio_categories")
 }
 
 model PortfolioImage {
-  id          String    @id @default(uuid())
+  id          String       @id @default(uuid())
   image       String
   filename    String
   portfolioId String
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt @map("updated_at")
-  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  orderImages OrderImage[]
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
 
   @@map("portfolio_images")
 }
 
 model Order {
-  id             String      @id @default(uuid())
+  id             String       @id @default(uuid())
   name_customer  String
   email_customer String
   phone_customer String
-  type           OrderType   @default(PRODUCT)
+  type           OrderType    @default(PRODUCT)
   portfolioId    String
+  quantity       Int          @default(1)
+  price_per_unit Float        @map("price_per_unit") // snapshot harga Portfolio.price saat order dibuat
   total_price    Float
-  status         OrderStatus @default(PENDING)
-  createdAt      DateTime    @default(now()) @map("created_at")
-  updatedAt      DateTime    @updatedAt @map("updated_at")
-  portfolio      Portfolio   @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  status         OrderStatus  @default(PENDING)
+  orderImages    OrderImage[]
+  createdAt      DateTime     @default(now()) @map("created_at")
+  updatedAt      DateTime     @updatedAt @map("updated_at")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
 
   @@map("orders")
 }
 
+model OrderImage {
+  id               String   @id @default(uuid())
+  orderId          String   @map("order_id")
+  portfolioImageId String   @map("portfolio_image_id")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  order          Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  portfolioImage PortfolioImage @relation(fields: [portfolioImageId], references: [id], onDelete: Cascade)
+
+  @@unique([orderId, portfolioImageId])
+  @@map("order_images")
+}
+
+model OrderSetting {
+  id            String           @id @default(uuid())
+  serviceCharge Boolean?         @default(false)
+  serviceType   OrderSettingType @default(FIXED) @map("service_type")
+  value         Float?           @default(0)
+  createdAt     DateTime         @default(now()) @map("created_at")
+  updatedAt     DateTime         @updatedAt @map("updated_at")
+
+  @@map("order_settings")
+}
+
 model Testimonial {
   id        String   @id @default(uuid())
-  cover     String?
   client    String
   testimony String
   location  String
@@ -229,4 +261,9 @@ enum OrderStatus {
 enum OrderType {
   PRODUCT
   SERVICE
+}
+
+enum OrderSettingType {
+  FIXED
+  PERCENTAGE
 }
