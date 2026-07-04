@@ -1,3 +1,5 @@
+'use server';
+
 import { prisma } from '@/lib/prisma';
 
 /**
@@ -29,6 +31,7 @@ export async function getPublicPortfolios(limit: number = 8) {
           take: 1,
           include: {
             categories: true,
+            images: true,
           },
         },
       },
@@ -54,12 +57,18 @@ export async function getPublicPortfolios(limit: number = 8) {
         take: limit - uniquePortfolios.length,
         include: {
           categories: true,
+          images: true,
         },
       });
       uniquePortfolios = [...uniquePortfolios, ...fallbackPortfolios];
     }
 
-    return uniquePortfolios.slice(0, limit);
+    const mappedPortfolios = uniquePortfolios.map((portfolio) => ({
+      ...portfolio,
+      images: portfolio.images ? portfolio.images.map((img: any) => img.image) : [],
+    }));
+
+    return mappedPortfolios.slice(0, limit);
   } catch (error) {
     console.error('Get Public Portfolios Error:', error);
     return [];
@@ -81,7 +90,7 @@ export async function getLatestPortfoliosPerCategory() {
             },
           },
           orderBy: { createdAt: 'desc' },
-          include: { categories: true },
+          include: { categories: true, images: true },
         });
 
         if (p) {
@@ -90,6 +99,7 @@ export async function getLatestPortfoliosPerCategory() {
           return {
             ...p,
             categories: [category, ...otherCategories],
+            images: p.images ? p.images.map((img) => img.image) : [],
           };
         }
         return null;
@@ -121,9 +131,14 @@ export async function getPublicPortfolioById(id: string) {
       where: { id },
       include: {
         categories: true,
+        images: true,
       },
     });
-    return data;
+    if (!data) return null;
+    return {
+      ...data,
+      images: data.images ? data.images.map((img) => img.image) : [],
+    };
   } catch (error) {
     console.error('Get Public Portfolio By ID Error:', error);
     return null;
@@ -133,7 +148,7 @@ export async function getPublicPortfolioById(id: string) {
 /**
  * Mengkonversi string title menjadi URL-friendly slug
  */
-export function toSlug(title: string): string {
+function toSlug(title: string): string {
   return title
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
@@ -148,9 +163,14 @@ export function toSlug(title: string): string {
 export async function getPublicPortfolioBySlug(titleSlug: string) {
   try {
     const portfolios = await prisma.portfolio.findMany({
-      include: { categories: true },
+      include: { categories: true, images: true },
     });
-    return portfolios.find((p) => toSlug(p.title) === titleSlug) ?? null;
+    const found = portfolios.find((p) => toSlug(p.title) === titleSlug);
+    if (!found) return null;
+    return {
+      ...found,
+      images: found.images ? found.images.map((img) => img.image) : [],
+    };
   } catch (error) {
     console.error('Get Public Portfolio By Slug Error:', error);
     return null;
@@ -188,9 +208,13 @@ export async function getAllPublicPortfolios(categoryId?: string, city?: string)
       orderBy: { createdAt: 'desc' },
       include: {
         categories: true,
+        images: true,
       },
     });
-    return data;
+    return data.map((portfolio) => ({
+      ...portfolio,
+      images: portfolio.images ? portfolio.images.map((img) => img.image) : [],
+    }));
   } catch (error) {
     console.error('Get All Public Portfolios Error:', error);
     return [];
@@ -284,9 +308,7 @@ export async function getPublicTestimonials() {
   }
 }
 
-/**
- * Mengambil semua kategori artikel
- */
+/*
 export async function getPublicArticleCategories() {
   try {
     const data = await prisma.articleCategory.findMany({
@@ -299,9 +321,6 @@ export async function getPublicArticleCategories() {
   }
 }
 
-/**
- * Mengambil semua artikel, dengan filter opsional berdasarkan kategori
- */
 export async function getPublicArticles(categoryId?: string) {
   try {
     const data = await prisma.article.findMany({
@@ -327,9 +346,6 @@ export async function getPublicArticles(categoryId?: string) {
   }
 }
 
-/**
- * Mengambil detail artikel berdasarkan slug dari title
- */
 export async function getPublicArticleBySlug(titleSlug: string) {
   try {
     const articles = await prisma.article.findMany({
@@ -347,9 +363,6 @@ export async function getPublicArticleBySlug(titleSlug: string) {
   }
 }
 
-/**
- * Mengambil data YouTube Link untuk ditampilkan di frontend
- */
 export async function getPublicYoutubeLinks() {
   try {
     const data = await prisma.youtubeLink.findMany({
@@ -361,3 +374,4 @@ export async function getPublicYoutubeLinks() {
     return [];
   }
 }
+*/

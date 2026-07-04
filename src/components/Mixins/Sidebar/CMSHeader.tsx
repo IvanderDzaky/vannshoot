@@ -28,13 +28,13 @@ const labelMapping: Record<string, string> = {
   portfolio: 'Portofolio',
   clients: 'Klien',
   testimonials: 'Testimoni',
-  'article-categories': 'Kategori Artikel',
-  articles: 'Artikel',
   users: 'Pengguna',
   roles: 'Jabatan',
   permissions: 'Hak Akses',
-  'youtube-links': 'YouTube Link',
   new: 'Tambah',
+  transactions: 'Transaksi',
+  'order-settings': 'Pengaturan Order',
+  orders: 'Order',
 };
 
 export function CMSHeader() {
@@ -113,7 +113,13 @@ export function CMSHeader() {
               const isLast = index === pathSegments.length - 1;
               const label = formatSegment(segment);
 
-              const staticSegments = ['managements', 'publications', 'services', 'master'];
+              const staticSegments = [
+                'managements',
+                'publications',
+                'services',
+                'master',
+                'transactions',
+              ];
               const isNonClickable = staticSegments.includes(segment);
 
               return (

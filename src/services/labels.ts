@@ -20,6 +20,7 @@ const isUUID = (str: string) =>
 export async function resolveLabel(segment: string, type: string): Promise<string | null> {
   const decodedSegment = decodeURIComponent(segment);
   try {
+    /*
     if (type === 'youtube-links') {
       const link = await prisma.youtubeLink.findUnique({
         where: { id: decodedSegment },
@@ -27,6 +28,7 @@ export async function resolveLabel(segment: string, type: string): Promise<strin
       });
       return link?.title || null;
     }
+    */
 
     if (type === 'portfolio-categories') {
       const category = await prisma.portfolioCategory.findUnique({
@@ -62,6 +64,7 @@ export async function resolveLabel(segment: string, type: string): Promise<strin
       return portfolio?.title || null;
     }
 
+    /*
     if (type === 'articles') {
       // Jika UUID → cari by ID dulu
       if (isUUID(decodedSegment)) {
@@ -79,6 +82,7 @@ export async function resolveLabel(segment: string, type: string): Promise<strin
       });
       return articleByTitle?.title || null;
     }
+    */
 
     if (type === 'testimonials') {
       const testimonial = await prisma.testimonial.findUnique({
