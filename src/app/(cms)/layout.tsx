@@ -8,6 +8,7 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { AppSidebar } from '@/components/Mixins/Sidebar/AppSidebar';
 import { CMSHeader } from '@/components/Mixins/Sidebar/CMSHeader';
+import { CMSContent } from '@/components/Mixins/Sidebar/CMSContent';
 import { PermissionProvider } from '@/providers/PermissionProvider';
 
 type Props = {
@@ -66,7 +67,7 @@ const CMSLayout: FC<Props> = async ({ children }) => {
           <AppSidebar session={session} permissions={permissions} />
           <SidebarInset>
             <CMSHeader />
-            <main className="flex flex-1 flex-col gap-4 p-4">{children}</main>
+            <CMSContent>{children}</CMSContent>
           </SidebarInset>
         </PermissionProvider>
       </SidebarProvider>
