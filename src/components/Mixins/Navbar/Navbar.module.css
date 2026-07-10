@@ -1,40 +1,59 @@
-@reference "tailwindcss";
-
 .navbarFixed {
-  @apply fixed z-[9999] bg-white/70 shadow-md;
-  backdrop-filter: blur(10px);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  background-color: rgba(11, 15, 17, 0.95);
 }
 
 .hamburgerLine {
-  @apply w-[30px] h-[2px] my-2 block bg-black;
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background-color: #fff;
 }
 
 .hamburgerActive > span:nth-child(1) {
-  @apply rotate-45;
+  transform: rotate(45deg) translateY(8px);
 }
 
 .hamburgerActive > span:nth-child(2) {
-  @apply scale-0;
+  transform: scale(0);
 }
 
 .hamburgerActive > span:nth-child(3) {
-  @apply -rotate-45;
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 .navLink {
-  @apply relative py-2 text-zinc-600 dark:text-zinc-400 font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400;
+  position: relative;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  color: #c8c7c4;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: #fe7f2d;
 }
 
 .navLink::after {
-  content: "";
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300;
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -2px;
+  height: 1px;
+  background-color: #fe7f2d;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .navLink:hover::after,
 .navLinkActive::after {
-  @apply w-full;
-}
-
-.navLinkActive {
-  @apply text-blue-600 dark:text-blue-400;
+  transform: scaleX(1);
 }

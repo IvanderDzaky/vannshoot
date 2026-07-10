@@ -1,3 +1,4 @@
+import type { FooterGroup, SocialLink } from '../types';
 import {
   GitHubIcon,
   InstagramIcon,
@@ -5,7 +6,7 @@ import {
   TwitterIcon,
 } from '@/components/Common/CustomIcons';
 
-export const footerLinks = [
+export const footerLinks: FooterGroup[] = [
   {
     title: 'Project',
     links: [
@@ -42,7 +43,7 @@ export const footerLinks = [
   },
 ];
 
-export const socials = [
+export const socials: SocialLink[] = [
   { name: 'GitHub', icon: <GitHubIcon />, href: '#' },
   { name: 'Twitter', icon: <TwitterIcon />, href: '#' },
   { name: 'LinkedIn', icon: <LinkedInIcon />, href: '#' },

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
+import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -8,16 +8,16 @@ import { siteMetadata } from '@/data/siteMetadata';
 import QueryProvider from '@/providers/QueryProvider';
 import { Toaster } from '@/components/ui/sonner';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const playfair = Playfair_Display({
   subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-playfair',
 });
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
+  weight: ['500'],
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
@@ -65,9 +65,9 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={cn('font-sans', inter.variable)}
+      className={cn('dark', inter.variable, playfair.variable, jetbrainsMono.variable)}
     >
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <QueryProvider>{children}</QueryProvider>
         <Toaster richColors position="top-center" />
       </body>

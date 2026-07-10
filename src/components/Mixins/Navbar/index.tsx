@@ -1,134 +1,122 @@
 'use client';
-import Link from 'next/link';
+import type { Route } from 'next';
 import { usePathname } from 'next/navigation';
-import { FC, useState, useEffect } from 'react';
+import type { FC } from 'react';
 
-import ThemeToggle from '@/components/Common/ThemeToggle';
 import { cn } from '@/lib/utils';
 
+import { useNavbar } from './useNavbar';
 import { navlinks } from './constant/navLinks';
 import styles from './Navbar.module.css';
+import type { NavLinkItem } from './types';
+import Link from 'next/link';
 
-const Navbar: FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const getIsMenuActive = (pathname: string, path: string) => {
+  if (path.startsWith('http')) {
+    return false;
+  }
 
-  const pathname = usePathname();
+  if (pathname === path) {
+    return true;
+  }
 
-  // Navbar fixed position if scrolling
-  useEffect(() => {
-    window.onscroll = () => {
-      const header = document.querySelector('header');
-      const fixNav = header?.offsetTop ?? 0;
+  if (path !== '/' && pathname.startsWith(path)) {
+    return true;
+  }
 
-      if (window.pageYOffset > fixNav) {
-        header?.classList.add(styles.navbarFixed);
-      } else {
-        header?.classList.remove(styles.navbarFixed);
-      }
-    };
-  }, []);
+  return false;
+};
 
-  // Hamburger menu handler
-  const hamburgerHandler = () => {
-    const hamburger = document.querySelector('#hamburger');
-    const navMenu = document.querySelector('#navMenu');
-
-    setIsOpen(!isOpen);
-
-    if (isOpen) {
-      hamburger?.classList.remove(styles.hamburgerActive);
-      navMenu?.classList.add('hidden');
-    } else {
-      hamburger?.classList.add(styles.hamburgerActive);
-      navMenu?.classList.remove('hidden');
-    }
-  };
-
-  // isMenuActive handler
-  const isMenuActive = (path: string) => {
-    const isHomePage = pathname === '/' && path === '/';
-
-    if (isHomePage) {
-      return true;
-    }
-
-    return pathname !== '/' && path !== '/' && pathname.includes(path);
-  };
+const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean }> = ({ link, isActive }) => {
+  const isExternal = link.path.startsWith('http');
+  const linkClassName = cn(
+    styles.navLink,
+    isActive && styles.navLinkActive,
+    'mx-4 lg:mx-5 flex items-center text-[13px] uppercase tracking-[0.24em]'
+  );
+  const internalHref = link.path as Route;
 
   return (
-    <header className="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between relative">
-          <div className="px-4">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 font-primary font-bold text-xl lg:text-2xl py-6"
-              aria-label="logo"
-            >
-              📦️ BikinProject
-            </Link>
+    <li className="group">
+      {isExternal ? (
+        <a href={link.path} target="_blank" rel="noreferrer" className={linkClassName}>
+          {link.title}
+        </a>
+      ) : (
+        <Link href={internalHref} className={linkClassName}>
+          {link.title}
+        </Link>
+      )}
+    </li>
+  );
+};
+
+const Navbar: FC = () => {
+  const pathname = usePathname();
+  const { isOpen, toggleMenu } = useNavbar();
+
+  const menuClasses = cn(
+    'absolute right-4 top-full mt-3 w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#0b0f11]/95 p-4 shadow-xl backdrop-blur-xl lg:static lg:top-auto lg:right-auto lg:mt-0 lg:w-auto lg:max-w-full lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
+    !isOpen && 'hidden',
+    isOpen && 'block'
+  );
+
+  return (
+    <header className="fixed top-0 left-0 w-full z-50">
+      <nav className="border-b border-white/5 bg-[#0b0f11]/80 px-6 py-4 shadow-lg backdrop-blur-xl lg:px-8">
+        <div className="mx-auto flex max-w-330 w-full items-center justify-between">
+          <Link href="/" className="font-headline text-white font-bold tracking-tighter text-2xl">
+            IDZ.
+          </Link>
+
+          <div className="hidden md:flex items-center gap-2 text-[#c8c7c4]">
+            {navlinks.map((link) => (
+              <NavbarLink
+                key={link.path}
+                link={link}
+                isActive={getIsMenuActive(pathname, link.path)}
+              />
+            ))}
           </div>
-          <div className="flex items-center px-4">
-            <button
-              id="hamburger"
-              name="hamburger"
-              type="button"
-              className="right-4 block absolute lg:hidden"
-              onClick={hamburgerHandler}
-            >
-              <span
-                className={`${styles.hamburgerLine} origin-top-left transition duration-300 ease-in-out`}
-              ></span>
-              <span
-                className={`${styles.hamburgerLine} transition duration-300 ease-in-out`}
-              ></span>
-              <span
-                className={`${styles.hamburgerLine} origin-bottom-left transition duration-300 ease-in-out`}
-              ></span>
+
+          <div className="flex items-center gap-4">
+            <button className="hidden rounded-full bg-[#fe7f2d] px-7 py-2.5 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:scale-[1.02] hover:brightness-110 active:scale-[0.98] md:inline-flex">
+              Let&apos;s Talk
             </button>
-
-            <nav
-              id="navMenu"
-              className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+            <button
+              type="button"
+              onClick={toggleMenu}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10 md:hidden"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
-              <ul className="block lg:flex lg:items-center">
-                {navlinks?.map((a, i) => (
-                  <li className="group" key={i}>
-                    <Link
-                      href={a.path}
-                      className={cn(
-                        styles.navLink,
-                        isMenuActive(a.path) && styles.navLinkActive,
-                        'mx-8 lg:mx-4 flex'
-                      )}
-                    >
-                      {a.title}
-                    </Link>
-                  </li>
-                ))}
-                <li className="ml-8 lg:ml-6 flex items-center gap-4">
-                  <Link
-                    href="/login"
-                    className="text-zinc-700 dark:text-zinc-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  >
-                    Masuk
-                  </Link>
-                  <Link
-                    href="/register"
-                    className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Daftar
-                  </Link>
-                </li>
-
-                <li className="ml-8 lg:ml-4 flex items-center">
-                  <ThemeToggle />
-                </li>
-              </ul>
-            </nav>
+              <span
+                className={`${styles.hamburgerLine} ${isOpen ? 'rotate-45 translate-y-0' : ''}`}
+              />
+              <span className={`${styles.hamburgerLine} ${isOpen ? 'scale-0' : ''}`} />
+              <span
+                className={`${styles.hamburgerLine} ${isOpen ? '-rotate-45 translate-y-0' : ''}`}
+              />
+            </button>
           </div>
         </div>
-      </div>
+
+        <div className={menuClasses}>
+          <ul className="space-y-3 lg:hidden">
+            {navlinks.map((link) => (
+              <NavbarLink
+                key={link.path}
+                link={link}
+                isActive={getIsMenuActive(pathname, link.path)}
+              />
+            ))}
+            <li>
+              <button className="w-full rounded-full bg-[#fe7f2d] px-6 py-3 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98]">
+                Let&apos;s Talk
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 };

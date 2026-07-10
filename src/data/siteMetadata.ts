@@ -1,9 +1,9 @@
 export const siteMetadata = {
-  title: process.env.NEXT_PUBLIC_SEO_TITLE || 'Tiba Tiba Ngoding',
-  author: process.env.NEXT_PUBLIC_SEO_AUTHOR || 'Tiba Tiba Ngoding',
+  title: process.env.NEXT_PUBLIC_SEO_TITLE || 'Ivander Dzaky',
+  author: process.env.NEXT_PUBLIC_SEO_AUTHOR || 'Ivander Dzaky',
   description:
     process.env.NEXT_PUBLIC_SEO_DESCRIPTION ||
-    'Sejak 2023, kami telah membantu berbagai bisnis mewujudkan visi digital mereka. Dengan dedikasi tinggi dan keahlian rekayasa perangkat lunak modern, kami menciptakan website premium, aplikasi kustom, dan solusi IT bisnis yang andal dan tepat sasaran.',
+    'Ivander Dzaky adalah seorang pengembang web yang berfokus pada pembuatan aplikasi web modern dan responsif. Dengan pengalaman dalam berbagai teknologi web, Ivander berkomitmen untuk memberikan solusi digital yang inovatif dan efisien.',
   language: process.env.NEXT_PUBLIC_SEO_LANGUAGE || 'id-ID',
   siteUrl: process.env.NEXT_PUBLIC_SEO_SITE_URL || '',
   socialBanner: '/assets/img/seo_twitter-card.jpg',

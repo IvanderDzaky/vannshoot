@@ -1,7 +1,10 @@
-export const navlinks = [
-  { title: 'Beranda', path: '/' },
-  { title: 'Fitur', path: '#features' },
-  { title: 'Cara Kerja', path: '#steps' },
-  { title: 'Tentang', path: '/about' },
-  { title: 'Kontak', path: '/contact' },
+import type { NavLinkItem } from '../types';
+
+export const navlinks: NavLinkItem[] = [
+  { title: 'Home', path: '/' },
+  { title: 'Portfolio', path: '/portfolio' },
+  { title: 'Services', path: '/services' },
+  { title: 'VannShoot', path: '/vannshoot' },
+  { title: 'About', path: '/about' },
+  { title: 'Contact', path: '/contact' },
 ];
