@@ -19,7 +19,7 @@ export default function HeroSection() {
             <button className="magnetic-button rounded-xl bg-[#fe7f2d] px-10 py-5 text-[#331100] font-semibold shadow-2xl shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98]">
               View Projects
             </button>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#e0e2e6] transition hover:bg-white/10"
                 href="#"
@@ -32,12 +32,12 @@ export default function HeroSection() {
               >
                 <span className="material-symbols-outlined">code</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="relative group">
-          <div className="relative z-10 aspect-5/6 overflow-hidden rounded-[2.5rem] border border-white/10 orange-glow transition-all duration-500">
+        <div className="relative group z-0">
+          <div className="relative z-0 aspect-5/6 overflow-hidden rounded-[2.5rem] border border-white/10 orange-glow transition-all duration-500">
             <img
               loading="lazy"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVPKZxp0F9DEc3bBpPoJ9gIyeOLFtFgEmmgp_mlcvW9ZJzAFa3bgLSafdeotTzsHTd8NJyV--oEnLJwHNNunqWO-iAvMtBlz5ny8m0otxA-PVlsJwEVFfLk6-rQu32fYDAzl5bfpAIHBMLbP7jkhKPJA4cQJlZFjsfnfTaXeS_B75g3X3ghoXb9Kyyxv91YeDnO_2yGjlBEPfVkcsL5v6ToZ5cRO0LDjMm-SfMH8ahsHjw0PNxdpeSgADy7NSgxMCasG13UK7jfPWE"
@@ -45,12 +45,12 @@ export default function HeroSection() {
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
-          <div className="absolute -top-10 -right-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block">
+          <div className="absolute -top-10 -right-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block z-20 pointer-events-none">
             <p className="font-label text-xs uppercase tracking-[0.3em] text-[#fe7f2d]">Frontend</p>
             <p className="mt-1 text-sm font-semibold text-white">Developer</p>
           </div>
           <div
-            className="absolute bottom-10 -left-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block"
+            className="absolute bottom-10 -left-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block z-20 pointer-events-none"
             style={{ animationDelay: '1s' }}
           >
             <p className="font-label text-xs uppercase tracking-[0.3em] text-[#fe7f2d]">
@@ -58,12 +58,12 @@ export default function HeroSection() {
             </p>
             <p className="mt-1 text-sm font-semibold text-white">VannShoot</p>
           </div>
-          <div
-            className="absolute bottom-40 -right-4 hidden rounded-xl border border-white/10 bg-[#111419]/75 p-4 shadow-2xl shadow-black/40 md:block"
+          {/* <div
+            className="absolute bottom-40 -right-4 hidden rounded-xl border border-white/10 bg-[#111419]/75 p-4 shadow-2xl shadow-black/40 md:block z-20 pointer-events-none"
             style={{ animationDelay: '1.5s' }}
           >
             <span className="material-symbols-outlined text-[#fe7f2d]">photo_camera</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

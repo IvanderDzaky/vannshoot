@@ -13,7 +13,7 @@ export default function AboutSection() {
         <div className="grid gap-6 md:grid-cols-4">
           {[
             { label: 'Projects Completed', value: '15+' },
-            { label: 'GPA', value: '3.47' },
+            { label: 'GPA', value: '3.50' },
             { label: 'Photography Sessions', value: '50+' },
             { label: 'Technologies', value: '10+' },
           ].map((item) => (
