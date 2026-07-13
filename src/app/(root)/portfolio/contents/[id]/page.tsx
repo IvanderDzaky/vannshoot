@@ -1,0 +1,102 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import type { Route } from 'next';
+import { contents } from '../../_data';
+
+interface Props {
+  params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const item = contents.find((c) => c.id === id);
+  if (!item) return { title: 'Content Not Found' };
+  
+  return {
+    title: `${item.title} - Vannshoot Creative Content`,
+    description: item.description,
+  };
+}
+
+export default async function ContentDetailPage({ params }: Props) {
+  const { id } = await params;
+  const item = contents.find((c) => c.id === id);
+  if (!item) notFound();
+
+  return (
+    <main className="min-h-screen bg-[#0b0f11] text-[#e0e2e6] py-24 px-6">
+      <div className="mx-auto max-w-300 space-y-12">
+        {/* Back Link */}
+        <div>
+          <Link
+            href={'/portfolio/contents' as Route}
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ffb68f] hover:underline"
+          >
+            ← Back to Contents
+          </Link>
+        </div>
+
+        {/* Layout */}
+        <div className="grid gap-12 lg:grid-cols-2">
+          {/* Main Visual */}
+          <div className="relative group overflow-hidden rounded-[2.5rem] border border-white/10 aspect-video lg:aspect-4/3">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Details */}
+          <div className="flex flex-col justify-center space-y-8">
+            <div className="space-y-4">
+              <span className="inline-block rounded-full bg-[#ffb68f]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#ffb68f]">
+                {item.category}
+              </span>
+              <h1 className="font-headline text-4xl font-bold leading-tight text-white md:text-5xl">
+                {item.title}
+              </h1>
+            </div>
+
+            <p className="text-lg leading-relaxed text-[#c8c7c4]">
+              {item.description}
+            </p>
+
+            {item.details && (
+              <div className="rounded-2xl border border-white/5 bg-[#111419] p-6 text-sm leading-7 text-[#d8d7d4]">
+                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Production Process</h4>
+                <p>{item.details}</p>
+              </div>
+            )}
+
+            <div className="space-y-3">
+              <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#ffb68f] font-semibold">
+                Production Tags
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-[#3d4652]/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[#c8c7c4]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <Link
+                href={'/contact' as Route}
+                className="inline-flex rounded-full bg-[#ffb68f] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105"
+              >
+                Inquire Collaboration
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}

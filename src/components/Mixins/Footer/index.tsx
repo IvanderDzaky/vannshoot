@@ -28,18 +28,7 @@ const Footer: FC = () => {
               Creative technologist and informatics student bridging the gap between digital
               architecture and visual storytelling. Built for the lens and the screen.
             </p>
-            <div className="mt-6 flex gap-4 text-[#c8c7c4]">
-              {socials.slice(0, 3).map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10"
-                  aria-label={item.label}
-                >
-                  <span className="material-symbols-outlined">{item.icon}</span>
-                </a>
-              ))}
-            </div>
+
           </div>
 
           <div>

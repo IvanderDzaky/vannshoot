@@ -1,3 +1,6 @@
+import type { Route } from 'next';
+import Link from 'next/link';
+
 export default function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen pt-28">
@@ -16,23 +19,12 @@ export default function HeroSection() {
             experiences and creates visual stories through photography.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <button className="magnetic-button rounded-xl bg-[#fe7f2d] px-10 py-5 text-[#331100] font-semibold shadow-2xl shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98]">
+            <Link
+              href={'/portfolio' as Route}
+              className="magnetic-button rounded-xl bg-[#fe7f2d] px-10 py-5 text-[#331100] font-semibold shadow-2xl shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
+            >
               View Projects
-            </button>
-            {/* <div className="flex gap-4">
-              <a
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#e0e2e6] transition hover:bg-white/10"
-                href="#"
-              >
-                <span className="material-symbols-outlined">camera</span>
-              </a>
-              <a
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#e0e2e6] transition hover:bg-white/10"
-                href="#"
-              >
-                <span className="material-symbols-outlined">code</span>
-              </a>
-            </div> */}
+            </Link>
           </div>
         </div>
 
@@ -40,7 +32,7 @@ export default function HeroSection() {
           <div className="relative z-0 aspect-5/6 overflow-hidden rounded-[2.5rem] border border-white/10 orange-glow transition-all duration-500">
             <img
               loading="lazy"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVPKZxp0F9DEc3bBpPoJ9gIyeOLFtFgEmmgp_mlcvW9ZJzAFa3bgLSafdeotTzsHTd8NJyV--oEnLJwHNNunqWO-iAvMtBlz5ny8m0otxA-PVlsJwEVFfLk6-rQu32fYDAzl5bfpAIHBMLbP7jkhKPJA4cQJlZFjsfnfTaXeS_B75g3X3ghoXb9Kyyxv91YeDnO_2yGjlBEPfVkcsL5v6ToZ5cRO0LDjMm-SfMH8ahsHjw0PNxdpeSgADy7NSgxMCasG13UK7jfPWE"
+              src="/assets/img/IvanderDzaky.JPEG"
               alt="Portfolio showcase"
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
