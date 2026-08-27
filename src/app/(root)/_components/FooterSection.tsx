@@ -1,3 +1,5 @@
+import { Mail, Code, Rss, Share2 } from 'lucide-react';
+
 export default function FooterSection() {
   return (
     <footer className="border-t border-white/5 bg-[#121619] py-20">
@@ -10,15 +12,40 @@ export default function FooterSection() {
               and photography.
             </p>
             <div className="mt-6 flex gap-4 text-[#c8c7c4]">
-              {['alternate_email', 'person', 'movie'].map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10"
-                >
-                  <span className="material-symbols-outlined">{icon}</span>
-                </a>
-              ))}
+              <a
+                href="mailto:contact@ivander.dev"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 hover:text-[#fe7f2d]"
+                aria-label="Email"
+              >
+                <Mail size={18} />
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 hover:text-[#fe7f2d]"
+                aria-label="GitHub"
+              >
+                <Code size={18} />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 hover:text-[#fe7f2d]"
+                aria-label="LinkedIn"
+              >
+                <Share2 size={18} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 hover:text-[#fe7f2d]"
+                aria-label="Instagram"
+              >
+                <Rss size={18} />
+              </a>
             </div>
           </div>
           <div>
@@ -36,10 +63,20 @@ export default function FooterSection() {
           <div>
             <h5 className="mb-6 text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">Socials</h5>
             <ul className="space-y-4 text-[#c8c7c4]">
-              {['Instagram', 'GitHub', 'LinkedIn', 'Twitter'].map((item) => (
-                <li key={item}>
-                  <a className="hover:text-white transition-colors" href="#">
-                    {item}
+              {[
+                { label: 'Instagram', href: 'https://instagram.com' },
+                { label: 'GitHub', href: 'https://github.com' },
+                { label: 'LinkedIn', href: 'https://linkedin.com' },
+                { label: 'Twitter', href: 'https://twitter.com' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a
+                    className="hover:text-white transition-colors"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}

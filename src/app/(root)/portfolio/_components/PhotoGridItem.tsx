@@ -20,7 +20,7 @@ const PhotoGridItem: FC<Props> = ({ photo }) => {
         
         {/* Info Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end">
-          <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#ffb68f] transition-colors duration-300">
+          <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors duration-300">
             {photo.title}
           </h3>
           {photo.details && (

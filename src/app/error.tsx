@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 import ErrorState from '@/components/Common/ErrorState';
-import { RequestError } from '@/interfaces/error';
+import type { RequestError } from '@/interfaces/error';
 
 export default function Error({ error }: { error: Error & { digest?: string } }) {
   useEffect(() => {

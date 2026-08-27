@@ -31,7 +31,7 @@ export default async function PhotoDetailPage({ params }: Props) {
         <div>
           <Link
             href={'/portfolio/photography' as Route}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ffb68f] hover:underline"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
           >
             ← Back to Photography
           </Link>
@@ -51,7 +51,7 @@ export default async function PhotoDetailPage({ params }: Props) {
           {/* Details */}
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-4">
-              <span className="inline-block rounded-full bg-[#ffb68f]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#ffb68f]">
+              <span className="inline-block rounded-full bg-[#fe7f2d]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#fe7f2d]">
                 Photography
               </span>
               <h1 className="font-headline text-4xl font-bold leading-tight text-white md:text-5xl">
@@ -69,7 +69,7 @@ export default async function PhotoDetailPage({ params }: Props) {
             <div className="pt-4">
               <Link
                 href={'/contact' as Route}
-                className="inline-flex rounded-full bg-[#ffb68f] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105"
+                className="inline-flex rounded-full bg-[#fe7f2d] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105"
               >
                 Inquire Prints / Shoot
               </Link>

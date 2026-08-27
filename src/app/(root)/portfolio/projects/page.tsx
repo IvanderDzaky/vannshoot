@@ -19,11 +19,11 @@ const ProjectsPage: FC = () => {
           <div className="space-y-4">
             <Link
               href={'/portfolio' as Route}
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ffb68f] hover:underline"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
             >
               ← Back to Hub
             </Link>
-            <span className="block text-sm uppercase tracking-[0.28em] text-[#ffb68f] font-label mt-2">
+            <span className="block text-sm uppercase tracking-[0.28em] text-[#fe7f2d] font-label mt-2">
               Engineering
             </span>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl font-headline">

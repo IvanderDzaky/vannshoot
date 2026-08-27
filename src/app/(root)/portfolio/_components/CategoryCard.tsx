@@ -24,10 +24,10 @@ const CategoryCard: FC<Props> = ({ category }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f11] via-[#0b0f11]/40 to-transparent opacity-80" />
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-8">
-        <span className="block text-[10px] uppercase tracking-[0.2em] text-[#ffb68f] font-semibold mb-2">
+        <span className="block text-[10px] uppercase tracking-[0.2em] text-[#fe7f2d] font-semibold mb-2">
           Explore Category
         </span>
-        <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#ffb68f] transition-colors duration-300">
+        <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors duration-300">
           {category.title}
         </h3>
         <p className="text-xs leading-relaxed text-[#c8c7c4] line-clamp-2">

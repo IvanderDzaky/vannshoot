@@ -1,3 +1,7 @@
+'use client';
+
+import { ArrowRight } from 'lucide-react';
+
 export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-22">
@@ -11,10 +15,10 @@ export default function PortfolioSection() {
           </div>
           <a
             className="inline-flex items-center gap-2 text-sm text-[#c8c7c4] transition hover:text-[#fe7f2d]"
-            href="#"
+            href="/portfolio"
           >
             View All Projects
-            <span className="material-symbols-outlined">arrow_right_alt</span>
+            <ArrowRight size={16} className="flex-shrink-0" />
           </a>
         </div>
         <div className="grid gap-10 md:grid-cols-2">
@@ -60,16 +64,8 @@ export default function PortfolioSection() {
               image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
             },
           ].map((project) => (
-            <div key={project.title} className="group cursor-pointer">
+            <div key={project.title} className="group">
               <div className="relative mb-6 overflow-hidden rounded-3xl border border-white/5 bg-[#111419] aspect-video">
-                <div className="absolute inset-0 flex items-center justify-center gap-4 bg-[#fe7f2d]/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <button className="rounded-full bg-white p-4 text-black transition-transform hover:scale-110">
-                    <span className="material-symbols-outlined">visibility</span>
-                  </button>
-                  <button className="rounded-full bg-white p-4 text-black transition-transform hover:scale-110">
-                    <span className="material-symbols-outlined">code</span>
-                  </button>
-                </div>
                 <img
                   loading="lazy"
                   src={project.image}

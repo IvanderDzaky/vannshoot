@@ -110,9 +110,12 @@ const Navbar: FC = () => {
               />
             ))}
             <li>
-              <button className="w-full rounded-full bg-[#fe7f2d] px-6 py-3 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98]">
+              <Link
+                href={'/contact' as Route}
+                className="inline-flex w-full rounded-full bg-[#fe7f2d] px-6 py-3 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98] items-center justify-center"
+              >
                 Let&apos;s Talk
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

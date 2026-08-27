@@ -21,7 +21,7 @@ const ProjectGridItem: FC<Props> = ({ project }) => {
       </div>
       <div className="p-8 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#ffb68f] transition-colors duration-300">
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#fe7f2d] transition-colors duration-300">
             {project.title}
           </h3>
           <p className="mb-6 text-sm leading-7 text-[#c8c7c4] line-clamp-2">{project.description}</p>
@@ -37,7 +37,7 @@ const ProjectGridItem: FC<Props> = ({ project }) => {
           </div>
         </div>
         <div>
-          <button className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ffb68f] hover:underline transition-colors duration-300">
+          <button className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline transition-colors duration-300">
             {project.cta} →
           </button>
         </div>
