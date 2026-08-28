@@ -1,71 +1,43 @@
-'use client';
-
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import type { Route } from 'next';
+import { projects } from '@/app/(root)/portfolio/_data';
+
+const portfolioContent = {
+  breadcrumb: "Portofolio",
+  heading: "Karya Terpilih",
+  cta: "Lihat Semua Proyek",
+};
+
+const breadcrumb = portfolioContent.breadcrumb;
+const heading = portfolioContent.heading;
+const cta = portfolioContent.cta;
 
 export default function PortfolioSection() {
+  const featuredProjects = projects.slice(0, 4);
+
   return (
-    <section id="portfolio" className="py-22">
+    <section id="portfolio" className="py-12 md:py-16">
       <div className="mx-auto max-w-330 px-6">
-        <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="block text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">
-              Portfolio
+              {breadcrumb}
             </span>
-            <h2 className="mt-4 text-4xl font-bold text-white font-headline">Selected Works</h2>
+            <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl font-headline">{heading}</h2>
           </div>
-          <a
+          <Link
             className="inline-flex items-center gap-2 text-sm text-[#c8c7c4] transition hover:text-[#fe7f2d]"
-            href="/portfolio"
+            href={'/portfolio' as Route}
           >
-            View All Projects
+            {cta}
             <ArrowRight size={16} className="flex-shrink-0" />
-          </a>
+          </Link>
         </div>
-        <div className="grid gap-10 md:grid-cols-2">
-          {[
-            {
-              title: 'Modern Portfolio Website',
-              description:
-                'A polished personal website built with a premium and minimal visual identity.',
-              tags: ['Next.js', 'TypeScript', 'Tailwind'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-            {
-              title: 'Finance Dashboard',
-              description: 'A clean analytics dashboard focused on clarity, speed, and usability.',
-              tags: ['React', 'Chart.js', 'UI/UX'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-            {
-              title: 'SaaS Admin Dashboard',
-              description:
-                'An internal admin experience designed for manageability and modern workflows.',
-              tags: ['Next.js', 'Prisma', 'Tailwind'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-            {
-              title: 'Creative Agency Landing Page',
-              description: 'A visually strong landing page crafted for a modern creative studio.',
-              tags: ['React', 'Framer Motion', 'CSS'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-            {
-              title: 'AI Image Gallery',
-              description:
-                'An interactive gallery experience featuring image discovery and modern layouts.',
-              tags: ['Next.js', 'AI API', 'Tailwind'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-            {
-              title: 'Productivity App',
-              description:
-                'A sleek productivity app designed to simplify daily planning and focus.',
-              tags: ['React', 'TypeScript', 'State Management'],
-              image: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-            },
-          ].map((project) => (
-            <div key={project.title} className="group">
-              <div className="relative mb-6 overflow-hidden rounded-3xl border border-white/5 bg-[#111419] aspect-video">
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <Link key={project.id} href={`/portfolio/projects/${project.id}` as Route} className="group block">
+              <div className="relative mb-4 overflow-hidden rounded-2xl border border-white/5 bg-[#111419] aspect-video">
                 <img
                   loading="lazy"
                   src={project.image}
@@ -75,7 +47,7 @@ export default function PortfolioSection() {
               </div>
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors">{project.title}</h3>
                   <p className="mb-3 text-sm leading-relaxed text-[#c8c7c4]">
                     {project.description}
                   </p>
@@ -91,7 +63,7 @@ export default function PortfolioSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

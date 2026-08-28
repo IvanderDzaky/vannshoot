@@ -4,56 +4,64 @@ import {
   ClapperboardIcon,
 } from 'lucide-react';
 
-export default function ServicesSection() {
-  const services = [
+const servicesContent = {
+  breadcrumb: "Keahlian",
+  heading: "Apa Saya Lakukan",
+  services: [
     {
-      title: 'Web Development',
+      title: "Pengembangan Web",
       description:
-        'I develop responsive, scalable, and modern web applications using React, Next.js, TypeScript, and Tailwind CSS.',
+        "Membangun aplikasi web responsif, skalabel, dan modern menggunakan React, Next.js, TypeScript, dan Tailwind CSS.",
       icon: TerminalIcon,
     },
     {
-      title: 'Photography',
+      title: "Fotografi",
       description:
-        'Through VannShoot, I capture portraits, graduation sessions, and events with a clean, cinematic, and timeless visual style.',
+        "Menciptakan portret, sesesi wisuda, dan acara dengan gaya visual yang bersih, sinematik, dan abadi.",
       icon: CameraIcon,
     },
     {
-      title: 'Content Creation',
+      title: "Konten Digital",
       description:
-        'I create engaging digital content, from visual storytelling and social media assets to short-form creative productions.',
+        "Membuat konten digital yang menarik, mulai dari storytelling visual hingga aset media sosial dan produksi kreatif pendek.",
       icon: ClapperboardIcon,
     },
-  ];
+  ]
+};
 
+const breadcrumb = servicesContent.breadcrumb;
+const heading = servicesContent.heading;
+const services = servicesContent.services;
+
+export default function ServicesSection() {
   return (
-    <section id="services" className="bg-[#121619] py-22">
+    <section id="services" className="bg-[#121619] py-12 md:py-16">
       <div className="mx-auto max-w-330 px-6">
-        <div className="mb-16 max-w-2xl">
+        <div className="mb-10 max-w-2xl">
           <span className="block text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">
-            Expertise
+            {breadcrumb}
           </span>
 
-          <h2 className="mt-4 font-headline text-4xl font-bold text-white">
-            What I Do
+          <h2 className="mt-2 font-headline text-3xl font-bold text-white md:text-4xl">
+            {heading}
           </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}
-              className="glass-panel rounded-[2rem] border border-white/5 p-10 transition-all duration-300 hover:bg-white/5"
+              className="glass-panel rounded-3xl border border-white/5 p-6 sm:p-8 transition-all duration-300 hover:bg-white/5"
             >
-              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fe7f2d]/10 text-[#fe7f2d]">
-                <service.icon size={32} />
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#fe7f2d]/10 text-[#fe7f2d]">
+                <service.icon size={24} />
               </div>
 
-              <h3 className="mb-4 text-2xl font-semibold text-white">
+              <h3 className="mb-3 text-xl font-semibold text-white">
                 {service.title}
               </h3>
 
-              <p className="leading-relaxed text-[#c8c7c4]">
+              <p className="text-sm leading-relaxed text-[#c8c7c4]">
                 {service.description}
               </p>
             </div>

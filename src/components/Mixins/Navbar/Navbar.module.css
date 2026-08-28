@@ -10,30 +10,39 @@
 
 .hamburgerLine {
   display: block;
-  width: 30px;
+  width: 24px;
   height: 2px;
-  margin: 6px 0;
+  margin: 5px 0;
   background-color: #fff;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburgerActive > span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
+  transform: rotate(45deg) translateY(6px);
+  margin-top: 7px;
 }
 
 .hamburgerActive > span:nth-child(2) {
   transform: scale(0);
+  opacity: 0;
 }
 
 .hamburgerActive > span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
+  transform: rotate(-45deg) translateY(-6px);
+  margin-bottom: 7px;
 }
 
 .navLink {
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   font-weight: 500;
   color: #c8c7c4;
-  transition: color 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink .relative {
+  position: relative;
+  z-index: 1;
 }
 
 .navLink:hover,
@@ -46,11 +55,12 @@
   position: absolute;
   inset-inline: 0;
   bottom: -2px;
-  height: 1px;
+  height: 2px;
   background-color: #fe7f2d;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(254, 127, 45, 0.4);
 }
 
 .navLink:hover::after,
