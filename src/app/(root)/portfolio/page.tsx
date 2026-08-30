@@ -5,7 +5,8 @@ import CategoryCard from './_components/CategoryCard';
 
 export const metadata = genPageMetadata({
   title: 'Portfolio Categories',
-  description: 'Explore Vannshoot creative portfolios including web development projects, photography, and creative contents.',
+  description:
+    'Explore Vannshoot creative portfolios including web development projects, photography, and creative contents.',
 });
 
 const PortfolioPage: FC = () => {

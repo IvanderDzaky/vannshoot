@@ -37,9 +37,15 @@ const PhotographyPage: FC = () => {
 
         {/* Photography Grid */}
         <div className="grid gap-6 md:grid-cols-2 auto-rows-fr">
-          {photos.map((photo) => (
-            <PhotoGridItem key={photo.id} photo={photo} />
-          ))}
+          {photos.length > 0 ? (
+            photos.map((photo) => (
+              <PhotoGridItem key={photo.id} photo={photo} />
+            ))
+          ) : (
+            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
+              No photos yet
+            </div>
+          )}
         </div>
       </div>
     </main>

@@ -37,9 +37,15 @@ const ProjectsPage: FC = () => {
 
         {/* Grid List */}
         <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectGridItem key={project.id} project={project} />
-          ))}
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <ProjectGridItem key={project.id} project={project} />
+            ))
+          ) : (
+            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
+              No projects yet
+            </div>
+          )}
         </div>
       </div>
     </main>

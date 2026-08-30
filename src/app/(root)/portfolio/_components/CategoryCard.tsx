@@ -14,12 +14,23 @@ const CategoryCard: FC<Props> = ({ category }) => {
       className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-[#111419] shadow-[0_24px_80px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-2"
     >
       <div className="aspect-4/3 overflow-hidden relative">
-        <img
-          loading="lazy"
-          src={category.image}
-          alt={category.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+        {category.image ? (
+          <img
+            loading="lazy"
+            src={category.image}
+            alt={category.title}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className="h-full w-full bg-[#111419] flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-4xl mb-2">📷</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-[#c8c7c4]">
+                {category.title}
+              </div>
+            </div>
+          </div>
+        )}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f11] via-[#0b0f11]/40 to-transparent opacity-80" />
       </div>

@@ -207,13 +207,16 @@ const AboutPage: FC = () => {
           <div className="rounded-3xl border border-white/10 bg-[#111419] p-6 sm:p-8 md:p-12">
             <div className="space-y-5 text-base leading-relaxed text-[#c8c7c4]">
               <p>
-                Saya adalah mahasiswa S1 Informatika di Universitas Telkom dengan fokus utama pada Frontend Development dan Fotografi. Saya berpengalaman membangun aplikasi web modern menggunakan React, Next.js, TypeScript, Tailwind CSS, Node.js, FastAPI, serta basis data MySQL dan PostgreSQL.
+                Saya adalah mahasiswa S1 Informatika di Telkom University dengan fokus utama pada Frontend Development dan Fotografi. Saya memiliki ketertarikan dalam membangun pengalaman digital yang modern, responsif, dan mudah digunakan dengan tetap memperhatikan kualitas visual serta detail antarmuka.
               </p>
               <p>
-                Saat menjalani kerja praktik di Telkomsel, saya mengembangkan website pemantauan dan analisis trafik jaringan berbasis AI dengan memanfaatkan data Observium untuk mengoptimalkan wawasan performa jaringan secara real-time.
+                Dalam pengembangan web, saya terbiasa menggunakan teknologi seperti React, Next.js, TypeScript, Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya terus mengembangkan kemampuan dalam frontend development sekaligus memperluas pemahaman mengenai backend, API, basis data, UI/UX, serta penerapan teknologi Artificial Intelligence dalam pengembangan aplikasi.
               </p>
               <p>
-                Di luar kegiatan akademik, saya aktif sebagai Staff Divisi Hunting di UKM Fotografi Universitas Telkom serta terlibat dalam berbagai kepanitiaan kampus. Kombinasi kemampuan teknis web development dan keahlian komposisi visual fotografi memberi saya sudut pandang yang seimbang dalam menciptakan pengalaman digital yang fungsional, responsif, dan estetis.
+                Di luar bidang teknologi, saya aktif dalam kegiatan fotografi dan berbagai kegiatan organisasi maupun kepanitiaan kampus. Fotografi membantu saya mengembangkan kepekaan terhadap komposisi, warna, pencahayaan, detail, dan storytelling visual, yang juga memengaruhi cara saya melihat dan merancang sebuah antarmuka digital.
+              </p>
+              <p>
+                Perpaduan antara kemampuan teknis dan kreativitas visual menjadi dasar pendekatan saya dalam berkarya. Saya percaya bahwa pengalaman digital yang baik tidak hanya harus berfungsi dengan baik, tetapi juga intuitif, menarik secara visual, dan memberikan pengalaman yang nyaman bagi pengguna.
               </p>
             </div>
           </div>
