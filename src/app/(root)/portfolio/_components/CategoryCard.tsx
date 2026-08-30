@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Route } from 'next';
 import type { CategoryCard as CategoryCardType } from '../_data';
 
@@ -15,11 +16,13 @@ const CategoryCard: FC<Props> = ({ category }) => {
     >
       <div className="aspect-4/3 overflow-hidden relative">
         {category.image ? (
-          <img
-            loading="lazy"
+          <Image
             src={category.image}
             alt={category.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            quality={80}
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
           <div className="h-full w-full bg-[#111419] flex items-center justify-center">
@@ -32,9 +35,9 @@ const CategoryCard: FC<Props> = ({ category }) => {
           </div>
         )}
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f11] via-[#0b0f11]/40 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f11] via-[#0b0f11]/40 to-transparent opacity-80 z-10" />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-8">
+      <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
         <span className="block text-[10px] uppercase tracking-[0.2em] text-[#fe7f2d] font-semibold mb-2">
           Jelajahi Kategori
         </span>

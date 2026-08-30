@@ -1,12 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const SCROLL_THRESHOLD = 0;
 
 export const useNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,5 +32,9 @@ export const useNavbar = () => {
     setIsOpen((prev) => !prev);
   };
 
-  return { isOpen, isFixed, toggleMenu };
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  return { isOpen, isFixed, toggleMenu, closeMenu };
 };

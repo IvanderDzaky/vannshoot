@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Route } from 'next';
 import type { Project } from '../_data';
 
@@ -11,13 +12,15 @@ const ProjectGridItem: FC<Props> = ({ project }) => {
   return (
     <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#111419] shadow-[0_24px_80px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-2 flex flex-col">
       <div className="aspect-video overflow-hidden relative">
-        <img
-          loading="lazy"
+        <Image
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={80}
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute top-4 left-4 rounded-full bg-[#111419]/80 backdrop-blur-xs px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#afcade] border border-white/5">
+        <div className="absolute top-4 left-4 z-10 rounded-full bg-[#111419]/80 backdrop-blur-xs px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#afcade] border border-white/5">
           {project.category}
         </div>
       </div>

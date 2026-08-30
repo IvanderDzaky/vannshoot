@@ -27,7 +27,11 @@ const getIsMenuActive = (pathname: string, path: string) => {
   return false;
 };
 
-const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean }> = ({ link, isActive }) => {
+const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean; onClick?: () => void }> = ({
+  link,
+  isActive,
+  onClick,
+}) => {
   const isExternal = link.path.startsWith('http');
   const linkClassName = cn(
     styles.navLink,
@@ -39,11 +43,11 @@ const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean }> = ({ link, isActi
   return (
     <li className="group relative">
       {isExternal ? (
-        <a href={link.path} target="_blank" rel="noreferrer" className={linkClassName}>
+        <a href={link.path} target="_blank" rel="noreferrer" className={linkClassName} onClick={onClick}>
           <span className="relative z-10">{link.title}</span>
         </a>
       ) : (
-        <Link href={internalHref} className={linkClassName}>
+        <Link href={internalHref} className={linkClassName} onClick={onClick}>
           <span className="relative z-10">{link.title}</span>
         </Link>
       )}
@@ -53,7 +57,7 @@ const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean }> = ({ link, isActi
 
 const Navbar: FC = () => {
   const pathname = usePathname();
-  const { isOpen, toggleMenu, isFixed } = useNavbar();
+  const { isOpen, toggleMenu, closeMenu, isFixed } = useNavbar();
 
   const headerClasses = cn(
     'fixed top-0 left-0 w-full z-50 transition-all duration-300',
@@ -61,7 +65,7 @@ const Navbar: FC = () => {
   );
 
   const menuClasses = cn(
-    'absolute right-4 top-full mt-3 w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#0b0f11]/95 p-4 shadow-xl backdrop-blur-xl lg:static lg:top-auto lg:right-auto lg:mt-0 lg:w-auto lg:max-w-full lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none lg:block lg:animate-none',
+    'absolute right-4 top-full mt-3 w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#0b0f11]/95 p-4 shadow-xl backdrop-blur-xl md:static md:top-auto md:right-auto md:mt-0 md:w-auto md:max-w-full md:border-none md:bg-transparent md:p-0 md:shadow-none md:block md:animate-none',
     !isOpen && 'hidden',
     isOpen && 'block animate-in slide-in-from-top-2 fade-in-100'
   );
@@ -119,17 +123,19 @@ const Navbar: FC = () => {
         </div>
 
         <div className={menuClasses}>
-          <ul className="list-none space-y-2 lg:hidden">
+          <ul className="list-none space-y-2 md:hidden">
             {navlinks.map((link) => (
               <NavbarLink
                 key={link.path}
                 link={link}
                 isActive={getIsMenuActive(pathname, link.path)}
+                onClick={closeMenu}
               />
             ))}
             <li>
               <Link
                 href={'/contact' as Route}
+                onClick={closeMenu}
                 className="inline-flex w-full rounded-full bg-[#fe7f2d] px-6 py-3 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:brightness-110 active:scale-[0.98] items-center justify-center"
               >
                 Hubungi Kami
