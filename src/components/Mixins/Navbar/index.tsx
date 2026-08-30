@@ -90,25 +90,30 @@ const Navbar: FC = () => {
           </ul>
 
           <div className="flex items-center gap-3 md:gap-4">
-            <button className="hidden rounded-full bg-[#fe7f2d] px-7 py-2.5 text-[#331100] font-semibold uppercase tracking-[0.16em] shadow-lg shadow-[#fe7f2d]/20 transition-all duration-300 hover:scale-[1.02] hover:brightness-110 active:scale-[0.98]">
-              Hubungi Kami
-            </button>
             <button
               type="button"
               onClick={toggleMenu}
-              className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20 md:hidden"
+              className="group relative flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20 md:hidden"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               <span
-                className={`${styles.hamburgerLine} ${isOpen ? 'rotate-45 transition-all duration-300' : 'transition-all duration-300 group-hover:translate-y-1'}`}
+                className={cn(
+                  'h-0.5 w-5 bg-white transition-all duration-300',
+                  isOpen ? 'translate-y-2 rotate-45' : ''
+                )}
               />
               <span
-                className={`${styles.hamburgerLine} ${isOpen ? 'scale-0' : 'opacity-60 group-hover:opacity-100 transition-opacity duration-300'}`}
+                className={cn(
+                  'h-0.5 w-5 bg-white transition-all duration-300',
+                  isOpen ? 'opacity-0' : 'opacity-60 group-hover:opacity-100'
+                )}
               />
               <span
-                className={`${styles.hamburgerLine} ${isOpen ? '-rotate-45 transition-all duration-300' : '-translate-y-1 group-hover:translate-y-0 transition-all duration-300'}`}
+                className={cn(
+                  'h-0.5 w-5 bg-white transition-all duration-300',
+                  isOpen ? '-translate-y-2 -rotate-45' : ''
+                )}
               />
-              <span className="absolute inset-0 rounded-full ring-2 ring-white/5 opacity-0 transition-all group-hover:opacity-100" />
             </button>
           </div>
         </div>

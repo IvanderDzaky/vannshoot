@@ -10,16 +10,16 @@
 
 .hamburgerLine {
   display: block;
-  width: 24px;
+  width: 20px;
   height: 2px;
-  margin: 5px 0;
+  margin: 0;
   background-color: #fff;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  transition: all 0.2s ease;
 }
 
 .hamburgerActive > span:nth-child(1) {
-  transform: rotate(45deg) translateY(6px);
-  margin-top: 7px;
+  transform: rotate(45deg);
 }
 
 .hamburgerActive > span:nth-child(2) {
@@ -28,8 +28,7 @@
 }
 
 .hamburgerActive > span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-6px);
-  margin-bottom: 7px;
+  transform: rotate(-45deg);
 }
 
 .navLink {
