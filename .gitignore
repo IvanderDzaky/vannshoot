@@ -60,8 +60,6 @@ dev-dist
 
 .open-next
 
-/generated/prisma
-
 # lockfiles
 pnpm-lock.yaml
 package-lock.json
