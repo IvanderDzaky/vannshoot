@@ -21,17 +21,17 @@ const ContentsPage: FC = () => {
               href={'/portfolio' as Route}
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
             >
-              ← Back to Hub
+              ← Kembali ke Portofolio
             </Link>
             <span className="block text-sm uppercase tracking-[0.28em] text-[#fe7f2d] font-label mt-2">
-              Creative Production
+              Produksi Kreatif
             </span>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl font-headline">
-              Creative Contents
+              Konten Kreatif
             </h1>
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#c8c7c4] md:text-base">
-            Crafting engaging content, short-form storytelling videos, vlogs, and cinematic creative campaigns.
+            Menghasilkan konten kreatif, video dokumentasi, serta berbagai materi visual digital.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ const ContentsPage: FC = () => {
             ))
           ) : (
             <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
-              No contents yet
+              Belum ada konten
             </div>
           )}
         </div>

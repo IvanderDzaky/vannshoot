@@ -36,7 +36,7 @@ const CategoryCard: FC<Props> = ({ category }) => {
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-8">
         <span className="block text-[10px] uppercase tracking-[0.2em] text-[#fe7f2d] font-semibold mb-2">
-          Explore Category
+          Jelajahi Kategori
         </span>
         <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors duration-300">
           {category.title}

@@ -26,32 +26,98 @@ interface BadgeItem {
 
 const badgeSkills: BadgeItem[] = [
   // Languages & Frontend
-  { name: 'React', url: 'https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black' },
-  { name: 'Next.js', url: 'https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white' },
-  { name: 'TypeScript', url: 'https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white' },
-  { name: 'Tailwind CSS', url: 'https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white' },
-  { name: 'Bootstrap', url: 'https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white' },
-  { name: 'HTML5', url: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white' },
-  { name: 'CSS3', url: 'https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white' },
-  { name: 'Flutter', url: 'https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white' },
+  {
+    name: 'React',
+    url: 'https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black',
+  },
+  {
+    name: 'Next.js',
+    url: 'https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
+  },
+  {
+    name: 'TypeScript',
+    url: 'https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white',
+  },
+  {
+    name: 'Tailwind CSS',
+    url: 'https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white',
+  },
+  {
+    name: 'Bootstrap',
+    url: 'https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white',
+  },
+  {
+    name: 'HTML5',
+    url: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
+  },
+  {
+    name: 'CSS3',
+    url: 'https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white',
+  },
+  {
+    name: 'Flutter',
+    url: 'https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white',
+  },
   // Backend & Languages
-  { name: 'Node.js', url: 'https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white' },
-  { name: 'PHP', url: 'https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white' },
-  { name: 'Java', url: 'https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white' },
-  { name: 'Python', url: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' },
-  { name: 'FastAPI', url: 'https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white' },
+  {
+    name: 'Node.js',
+    url: 'https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white',
+  },
+  {
+    name: 'PHP',
+    url: 'https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white',
+  },
+  {
+    name: 'Java',
+    url: 'https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white',
+  },
+  {
+    name: 'Python',
+    url: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white',
+  },
+  {
+    name: 'FastAPI',
+    url: 'https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white',
+  },
   // Databases
-  { name: 'MySQL', url: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white' },
-  { name: 'PostgreSQL', url: 'https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white' },
+  {
+    name: 'MySQL',
+    url: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white',
+  },
+  {
+    name: 'PostgreSQL',
+    url: 'https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white',
+  },
   // Cloud, Tools & Editors
-  { name: 'Google Cloud', url: 'https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white' },
-  { name: 'Microsoft Azure', url: 'https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoftazure&logoColor=white' },
-  { name: 'GitHub', url: 'https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white' },
-  { name: 'Git', url: 'https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white' },
-  { name: 'VS Code', url: 'https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white' },
+  {
+    name: 'Google Cloud',
+    url: 'https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white',
+  },
+  {
+    name: 'Microsoft Azure',
+    url: 'https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoftazure&logoColor=white',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white',
+  },
+  {
+    name: 'Git',
+    url: 'https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white',
+  },
+  {
+    name: 'VS Code',
+    url: 'https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white',
+  },
   // Design & Media
-  { name: 'Adobe Lightroom', url: 'https://img.shields.io/badge/Adobe_Lightroom-31A8FF?style=for-the-badge&logo=adobelightroom&logoColor=white' },
-  { name: 'Adobe Photoshop', url: 'https://img.shields.io/badge/Adobe_Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white' },
+  {
+    name: 'Adobe Lightroom',
+    url: 'https://img.shields.io/badge/Adobe_Lightroom-31A8FF?style=for-the-badge&logo=adobelightroom&logoColor=white',
+  },
+  {
+    name: 'Adobe Photoshop',
+    url: 'https://img.shields.io/badge/Adobe_Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white',
+  },
 ];
 
 interface CertificationItem {
@@ -191,7 +257,8 @@ const AboutPage: FC = () => {
             Ivander Dzaky Khairullah
           </h1>
           <p className="text-lg md:text-xl leading-relaxed text-[#c8c7c4] max-w-3xl">
-            <strong className="text-white">Front-End Developer</strong> & Mahasiswa S1 Informatika di Universitas Telkom
+            <strong className="text-white">Front-End Developer</strong> & Mahasiswa S1 Informatika
+            di Universitas Telkom
           </p>
           <div className="flex items-center gap-2 text-sm text-[#9e9d9a] pt-1">
             <MapPin className="w-4 h-4 text-[#fe7f2d] shrink-0" aria-hidden="true" />
@@ -207,16 +274,29 @@ const AboutPage: FC = () => {
           <div className="rounded-3xl border border-white/10 bg-[#111419] p-6 sm:p-8 md:p-12">
             <div className="space-y-5 text-base leading-relaxed text-[#c8c7c4]">
               <p>
-                Saya adalah mahasiswa S1 Informatika di Telkom University dengan fokus utama pada Frontend Development dan Fotografi. Saya memiliki ketertarikan dalam membangun pengalaman digital yang modern, responsif, dan mudah digunakan dengan tetap memperhatikan kualitas visual serta detail antarmuka.
+                Saya adalah mahasiswa S1 Informatika di Telkom University dengan fokus utama pada
+                Frontend Development dan Fotografi. Saya memiliki ketertarikan dalam membangun
+                pengalaman digital yang modern, responsif, dan mudah digunakan dengan tetap
+                memperhatikan kualitas visual serta detail antarmuka.
               </p>
               <p>
-                Dalam pengembangan web, saya terbiasa menggunakan teknologi seperti React, Next.js, TypeScript, Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya terus mengembangkan kemampuan dalam frontend development sekaligus memperluas pemahaman mengenai backend, API, basis data, UI/UX, serta penerapan teknologi Artificial Intelligence dalam pengembangan aplikasi.
+                Dalam pengembangan web, saya terbiasa menggunakan teknologi seperti React, Next.js,
+                TypeScript, Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya terus
+                mengembangkan kemampuan dalam frontend development sekaligus memperluas pemahaman
+                mengenai backend, API, basis data, UI/UX, serta penerapan teknologi Artificial
+                Intelligence dalam pengembangan aplikasi.
               </p>
               <p>
-                Di luar bidang teknologi, saya aktif dalam kegiatan fotografi dan berbagai kegiatan organisasi maupun kepanitiaan kampus. Fotografi membantu saya mengembangkan kepekaan terhadap komposisi, warna, pencahayaan, detail, dan storytelling visual, yang juga memengaruhi cara saya melihat dan merancang sebuah antarmuka digital.
+                Di luar bidang teknologi, saya aktif dalam kegiatan fotografi dan berbagai kegiatan
+                organisasi maupun kepanitiaan kampus. Fotografi membantu saya mengembangkan kepekaan
+                terhadap komposisi, warna, pencahayaan, detail, dan storytelling visual, yang juga
+                memengaruhi cara saya melihat dan merancang sebuah antarmuka digital.
               </p>
               <p>
-                Perpaduan antara kemampuan teknis dan kreativitas visual menjadi dasar pendekatan saya dalam berkarya. Saya percaya bahwa pengalaman digital yang baik tidak hanya harus berfungsi dengan baik, tetapi juga intuitif, menarik secara visual, dan memberikan pengalaman yang nyaman bagi pengguna.
+                Perpaduan antara kemampuan teknis dan kreativitas visual menjadi dasar pendekatan
+                saya dalam berkarya. Saya percaya bahwa pengalaman digital yang baik tidak hanya
+                harus berfungsi dengan baik, tetapi juga intuitif, menarik secara visual, dan
+                memberikan pengalaman yang nyaman bagi pengguna.
               </p>
             </div>
           </div>
@@ -224,9 +304,7 @@ const AboutPage: FC = () => {
           {/* Kapabilitas Utama */}
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-6 sm:p-8 space-y-4">
-              <h3 className="text-2xl font-bold font-headline text-white">
-                Web Development
-              </h3>
+              <h3 className="text-2xl font-bold font-headline text-white">Web Development</h3>
               <p className="text-sm text-[#c8c7c4]">
                 Keahlian utama dalam pengembangan aplikasi web modern:
               </p>
@@ -241,9 +319,7 @@ const AboutPage: FC = () => {
             </div>
 
             <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-6 sm:p-8 space-y-4">
-              <h3 className="text-2xl font-bold font-headline text-white">
-                Fotografi & Desain
-              </h3>
+              <h3 className="text-2xl font-bold font-headline text-white">Fotografi & Desain</h3>
               <p className="text-sm text-[#c8c7c4]">
                 Keahlian dalam dokumentasi visual dan estetika media:
               </p>
@@ -275,7 +351,9 @@ const AboutPage: FC = () => {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                   <div>
                     <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                    <p className="text-[#fe7f2d] font-semibold text-sm sm:text-base">{exp.organization}</p>
+                    <p className="text-[#fe7f2d] font-semibold text-sm sm:text-base">
+                      {exp.organization}
+                    </p>
                   </div>
                   <span className="inline-block text-xs sm:text-sm text-[#c8c7c4] bg-[#fe7f2d]/10 border border-[#fe7f2d]/20 px-3 py-1 rounded-full self-start sm:self-auto shrink-0 whitespace-nowrap">
                     {exp.period}
@@ -322,10 +400,16 @@ const AboutPage: FC = () => {
               <h3 className="text-lg font-bold text-white mb-6">Sertifikasi Utama</h3>
               <div className="space-y-4">
                 {certifications.map((cert, idx) => (
-                  <div key={idx} className="rounded-xl border border-white/5 bg-[#111419] p-4 space-y-1.5">
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-white/5 bg-[#111419] p-4 space-y-1.5"
+                  >
                     <div className="flex items-start justify-between gap-2">
                       <h4 className="text-sm sm:text-base font-semibold text-white flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#fe7f2d] shrink-0 mt-1" aria-hidden="true" />
+                        <CheckCircle2
+                          className="w-4 h-4 text-[#fe7f2d] shrink-0 mt-1"
+                          aria-hidden="true"
+                        />
                         <span>{cert.title}</span>
                       </h4>
                       <span className="text-xs text-[#9e9d9a] shrink-0">{cert.period}</span>
@@ -356,10 +440,15 @@ const AboutPage: FC = () => {
           </h2>
           <div className="space-y-6">
             {educations.map((edu, idx) => (
-              <article key={idx} className="rounded-2xl border border-white/10 bg-[#111419]/50 p-6 sm:p-8 space-y-2">
+              <article
+                key={idx}
+                className="rounded-2xl border border-white/10 bg-[#111419]/50 p-6 sm:p-8 space-y-2"
+              >
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                   <h3 className="text-xl font-bold text-white">{edu.institution}</h3>
-                  <span className="text-xs sm:text-sm text-[#fe7f2d] font-semibold">{edu.period}</span>
+                  <span className="text-xs sm:text-sm text-[#fe7f2d] font-semibold">
+                    {edu.period}
+                  </span>
                 </div>
                 <p className="text-sm font-semibold text-[#c8c7c4]">{edu.degree}</p>
                 <p className="text-sm text-[#9e9d9a] leading-relaxed pt-1">{edu.description}</p>
@@ -378,14 +467,21 @@ const AboutPage: FC = () => {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-[#c8c7c4]">
               <p>
-                Saya percaya bahwa pengembangan perangkat lunak bukan sekadar menulis baris kode, melainkan menghadirkan solusi bernilai yang memudahkan pengguna. Kombinasi latar belakang Informatika dan kreativitas dalam fotografi memungkinkan saya merancang produk web yang tidak hanya andal secara teknis, tetapi juga nyaman digunakan secara estetis.
+                Saya percaya bahwa pengembangan perangkat lunak bukan sekadar menulis baris kode,
+                melainkan menghadirkan solusi bernilai yang memudahkan pengguna. Kombinasi latar
+                belakang Informatika dan kreativitas dalam fotografi memungkinkan saya merancang
+                produk web yang tidak hanya andal secara teknis, tetapi juga nyaman digunakan secara
+                estetis.
               </p>
               <div className="space-y-3 pt-2">
                 <p className="font-semibold text-white">Komitmen pengembangan saya:</p>
                 <ul className="space-y-2.5">
                   {commitmentItems.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <ArrowRight className="w-4 h-4 text-[#fe7f2d] shrink-0 mt-1" aria-hidden="true" />
+                      <ArrowRight
+                        className="w-4 h-4 text-[#fe7f2d] shrink-0 mt-1"
+                        aria-hidden="true"
+                      />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -397,22 +493,26 @@ const AboutPage: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-16 md:py-20 bg-[#111419]/50">
-        <div className="mx-auto max-w-330 text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold font-headline text-white">
-            Tertarik untuk Berkolaborasi?
-          </h2>
-          <p className="text-base sm:text-lg text-[#c8c7c4] max-w-2xl mx-auto">
-            Saya terbuka untuk proyek pengembangan web, kebutuhan dokumentasi fotografi, atau kolaborasi kreatif lainnya.
-          </p>
-          <div className="pt-4">
-            <Link
-              href={'/contact' as Route}
-              className="inline-flex items-center gap-2 rounded-full bg-[#fe7f2d] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105 active:scale-95"
-            >
-              <span>Hubungi Saya</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-330 px-6">
+          <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8 md:p-12">
+            <div className="absolute inset-0 bg-linear-to-br from-[#fe7f2d]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative z-10 text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white font-headline">
+                Tertarik untuk Berkolaborasi?
+              </h2>
+              <p className="mx-auto mt-4 mb-8 max-w-2xl text-sm md:text-base leading-relaxed text-[#c8c7c4]">
+                Saya terbuka untuk proyek pengembangan web, kebutuhan dokumentasi fotografi, atau
+                kolaborasi kreatif lainnya.
+              </p>
+              <Link
+                href={'/contact' as Route}
+                className="inline-flex items-center gap-2 rounded-full bg-[#fe7f2d] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105 active:scale-95"
+              >
+                <span>Hubungi Saya</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

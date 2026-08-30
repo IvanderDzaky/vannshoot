@@ -1,33 +1,33 @@
 const journeyContent = {
-  breadcrumb: "Perkembangan",
+  breadcrumb: "Perjalanan",
   heading: "Perjalanan Saya",
   timeline: [
     {
       date: '2023',
-      title: 'Mulai studi Informatika di Telkom University',
+      title: 'Memulai Studi Informatika di Telkom University',
       description:
-        'Membangun dasar karir yang menghubungkan teknologi, desain, dan storytelling visual.',
+        'Memulai perjalanan di bidang Informatika dengan mempelajari dasar-dasar pemrograman, pengembangan perangkat lunak, dan teknologi digital.',
       active: false,
     },
     {
       date: '2024',
-      title: 'Fokus pada pengembangan frontend dan fotografi',
+      title: 'Mendalami Web Development dan Fotografi',
       description:
-        'Membuat antarmuka modern sambil berkembang sebagai brand fotografi kreatif VannShoot.',
+        'Mulai berfokus pada pengembangan web, khususnya frontend, sekaligus mengembangkan kemampuan fotografi melalui berbagai kegiatan dan pengalaman.',
       active: false,
     },
     {
       date: '2025',
-      title: 'Membangun proyek pribadi dan memperluas VannShoot',
+      title: 'Mengembangkan Proyek dan Pengalaman',
       description:
-        'Berbagai proyek web yang praktis dan karya fotografi untuk portret, wisuda, dan acara.',
+        'Mengerjakan berbagai proyek pengembangan web untuk memperkuat kemampuan teknis, sekaligus terus mengembangkan pengalaman dalam fotografi, mulai dari potret hingga dokumentasi berbagai kegiatan.',
       active: false,
     },
     {
       date: 'Sekarang',
-      title: 'Berpelajari dan menciptakan pengalaman digital',
+      title: 'Terus Belajar dan Berkembang',
       description:
-        'Mengikuti teknologi web modern sambil menciptakan antarmuka dan visual yang bermakna dan terangkai.',
+        'Terus memperdalam kemampuan di bidang web development, mengeksplorasi teknologi baru, serta mengembangkan kreativitas melalui fotografi dan berbagai proyek yang dikerjakan.',
       active: true,
     },
   ]

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const item = projects.find((p) => p.id === id);
   if (!item) return { title: 'Project Not Found' };
-  
+
   return {
     title: `${item.title} - Vannshoot Projects`,
     description: item.description,
@@ -33,7 +33,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             href={'/portfolio/projects' as Route}
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
           >
-            ← Back to Projects
+            ← Kembali ke Proyek
           </Link>
         </div>
 
@@ -59,20 +59,20 @@ export default async function ProjectDetailPage({ params }: Props) {
               </h1>
             </div>
 
-            <p className="text-lg leading-relaxed text-[#c8c7c4]">
-              {item.description}
-            </p>
+            <p className="text-lg leading-relaxed text-[#c8c7c4]">{item.description}</p>
 
             {item.details && (
               <div className="rounded-2xl border border-white/5 bg-[#111419] p-6 text-sm leading-7 text-[#d8d7d4]">
-                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Project Details</h4>
+                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">
+                  Detail Proyek
+                </h4>
                 <p>{item.details}</p>
               </div>
             )}
 
             <div className="space-y-3">
               <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#fe7f2d] font-semibold">
-                Technologies
+                Teknologi yang Digunakan
               </h4>
               <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
@@ -91,7 +91,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 href={'/contact' as Route}
                 className="inline-flex rounded-full bg-[#fe7f2d] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#331100] transition-transform duration-300 hover:scale-105"
               >
-                Inquire Collaboration
+                Hubungi Saya
               </Link>
             </div>
           </div>

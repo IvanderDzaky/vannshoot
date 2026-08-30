@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+import Link from 'next/link';
+import type { Route } from 'next';
 import type { Project } from '../_data';
 
 interface Props {
@@ -37,9 +39,12 @@ const ProjectGridItem: FC<Props> = ({ project }) => {
           </div>
         </div>
         <div>
-          <button className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline transition-colors duration-300">
+          <Link
+            href={`/portfolio/projects/${project.id}` as Route}
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline transition-colors duration-300"
+          >
             {project.cta} →
-          </button>
+          </Link>
         </div>
       </div>
     </div>

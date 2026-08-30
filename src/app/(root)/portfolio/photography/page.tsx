@@ -21,29 +21,29 @@ const PhotographyPage: FC = () => {
               href={'/portfolio' as Route}
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
             >
-              ← Back to Hub
+              ← Kembali ke Portofolio
             </Link>
             <span className="block text-sm uppercase tracking-[0.28em] text-[#fe7f2d] font-label mt-2">
-              Cinematic Vision
+              Visual Sinematik
             </span>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl font-headline">
-              Photography Gallery
+              Galeri Fotografi
             </h1>
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#c8c7c4] md:text-base">
-            Exploring the beauty found in the intersection of shadows, modern architecture, cinematic lighting, and professional grading.
+            Menjelajahi keindahan visual melalui pencahayaan sinematik, komposisi, dan penyuntingan profesional.
           </p>
         </div>
 
         {/* Photography Grid */}
-        <div className="grid gap-6 md:grid-cols-2 auto-rows-fr">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {photos.length > 0 ? (
             photos.map((photo) => (
               <PhotoGridItem key={photo.id} photo={photo} />
             ))
           ) : (
-            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
-              No photos yet
+            <div className="col-span-full text-center py-20 text-[#c8c7c4]">
+              Belum ada foto
             </div>
           )}
         </div>

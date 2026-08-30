@@ -21,17 +21,17 @@ const ProjectsPage: FC = () => {
               href={'/portfolio' as Route}
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fe7f2d] hover:underline"
             >
-              ← Back to Hub
+              ← Kembali ke Portofolio
             </Link>
             <span className="block text-sm uppercase tracking-[0.28em] text-[#fe7f2d] font-label mt-2">
-              Engineering
+              Pengembangan Web
             </span>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl font-headline">
-              Development Projects
+              Proyek Pengembangan
             </h1>
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#c8c7c4] md:text-base">
-            Web applications, dashboards, and engineering solutions built with modern stacks like React, Next.js, and Three.js.
+            Koleksi aplikasi web, dashboard, dan sistem digital yang dikembangkan untuk menghasilkan solusi yang efisien, responsif, dan mudah digunakan.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ const ProjectsPage: FC = () => {
             ))
           ) : (
             <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
-              No projects yet
+              Belum ada proyek
             </div>
           )}
         </div>
