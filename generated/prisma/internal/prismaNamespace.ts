@@ -1767,6 +1767,7 @@ export const AccountScalarFieldEnum = {
   id: 'id',
   accountId: 'accountId',
   providerId: 'providerId',
+  issuer: 'issuer',
   userId: 'userId',
   accessToken: 'accessToken',
   refreshToken: 'refreshToken',
