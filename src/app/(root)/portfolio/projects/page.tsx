@@ -31,20 +31,17 @@ const ProjectsPage: FC = () => {
             </h1>
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#c8c7c4] md:text-base">
-            Koleksi aplikasi web, dashboard, dan sistem digital yang dikembangkan untuk menghasilkan solusi yang efisien, responsif, dan mudah digunakan.
+            Koleksi aplikasi web, dashboard, dan sistem digital yang dikembangkan untuk menghasilkan
+            solusi yang efisien, responsif, dan mudah digunakan.
           </p>
         </div>
 
         {/* Grid List */}
         <div className="grid gap-8 md:grid-cols-2">
           {projects.length > 0 ? (
-            projects.map((project) => (
-              <ProjectGridItem key={project.id} project={project} />
-            ))
+            projects.map((project) => <ProjectGridItem key={project.id} project={project} />)
           ) : (
-            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
-              Belum ada proyek
-            </div>
+            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">Belum ada proyek</div>
           )}
         </div>
       </div>

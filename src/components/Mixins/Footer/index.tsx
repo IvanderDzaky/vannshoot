@@ -31,7 +31,8 @@ const Footer: FC = () => {
               Ivander Dzaky
             </div>
             <p className="max-w-sm text-sm sm:text-base text-[#c8c7c4] leading-relaxed">
-              Saya membangun pengalaman digital yang bermakna dan menciptakan cerita visual melalui pengembangan web dan fotografi.
+              Saya membangun pengalaman digital yang bermakna dan menciptakan cerita visual melalui
+              pengembangan web dan fotografi.
             </p>
           </div>
 
@@ -42,10 +43,7 @@ const Footer: FC = () => {
             <ul className="space-y-3 text-sm text-[#c8c7c4]">
               {navlinks.map((item) => (
                 <li key={item.title}>
-                  <Link
-                    className="hover:text-white transition-colors"
-                    href={item.path as Route}
-                  >
+                  <Link className="hover:text-white transition-colors" href={item.path as Route}>
                     {item.title}
                   </Link>
                 </li>

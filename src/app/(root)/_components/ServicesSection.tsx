@@ -1,32 +1,28 @@
-import {
-  TerminalIcon,
-  CameraIcon,
-  ClapperboardIcon,
-} from 'lucide-react';
+import { TerminalIcon, CameraIcon, ClapperboardIcon } from 'lucide-react';
 
 const servicesContent = {
-  breadcrumb: "Keahlian",
-  heading: "Apa Saya Lakukan",
+  breadcrumb: 'Keahlian',
+  heading: 'Apa Saya Lakukan',
   services: [
     {
-      title: "Pengembangan Web",
+      title: 'Pengembangan Web',
       description:
-        "Membangun aplikasi web responsif, skalabel, dan modern menggunakan React, Next.js, TypeScript, dan Tailwind CSS.",
+        'Membangun aplikasi web responsif, skalabel, dan modern menggunakan React, Next.js, TypeScript, dan Tailwind CSS.',
       icon: TerminalIcon,
     },
     {
-      title: "Fotografi",
+      title: 'Fotografi',
       description:
-        "Menciptakan portret, sesesi wisuda, dan acara dengan gaya visual yang bersih, sinematik, dan abadi.",
+        'Menciptakan portret, sesesi wisuda, dan acara dengan gaya visual yang bersih, sinematik, dan abadi.',
       icon: CameraIcon,
     },
     {
-      title: "Konten Digital",
+      title: 'Konten Digital',
       description:
-        "Membuat konten digital yang menarik, mulai dari storytelling visual hingga aset media sosial dan produksi kreatif pendek.",
+        'Membuat konten digital yang menarik, mulai dari storytelling visual hingga aset media sosial dan produksi kreatif pendek.',
       icon: ClapperboardIcon,
     },
-  ]
+  ],
 };
 
 const breadcrumb = servicesContent.breadcrumb;
@@ -57,13 +53,9 @@ export default function ServicesSection() {
                 <service.icon size={24} />
               </div>
 
-              <h3 className="mb-3 text-xl font-semibold text-white">
-                {service.title}
-              </h3>
+              <h3 className="mb-3 text-xl font-semibold text-white">{service.title}</h3>
 
-              <p className="text-sm leading-relaxed text-[#c8c7c4]">
-                {service.description}
-              </p>
+              <p className="text-sm leading-relaxed text-[#c8c7c4]">{service.description}</p>
             </div>
           ))}
         </div>

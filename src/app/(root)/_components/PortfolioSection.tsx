@@ -4,9 +4,9 @@ import type { Route } from 'next';
 import { projects } from '@/app/(root)/portfolio/_data';
 
 const portfolioContent = {
-  breadcrumb: "Portofolio",
-  heading: "Karya Terpilih",
-  cta: "Lihat Semua Proyek",
+  breadcrumb: 'Portofolio',
+  heading: 'Karya Terpilih',
+  cta: 'Lihat Semua Proyek',
 };
 
 const breadcrumb = portfolioContent.breadcrumb;
@@ -24,7 +24,9 @@ export default function PortfolioSection() {
             <span className="block text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">
               {breadcrumb}
             </span>
-            <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl font-headline">{heading}</h2>
+            <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl font-headline">
+              {heading}
+            </h2>
           </div>
           <Link
             className="inline-flex items-center gap-2 text-sm text-[#c8c7c4] transition hover:text-[#fe7f2d]"
@@ -36,7 +38,11 @@ export default function PortfolioSection() {
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {featuredProjects.map((project) => (
-            <Link key={project.id} href={`/portfolio/projects/${project.id}` as Route} className="group block">
+            <Link
+              key={project.id}
+              href={`/portfolio/projects/${project.id}` as Route}
+              className="group block"
+            >
               <div className="relative mb-4 overflow-hidden rounded-2xl border border-white/5 bg-[#111419] aspect-video">
                 <img
                   loading="lazy"
@@ -47,7 +53,9 @@ export default function PortfolioSection() {
               </div>
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#fe7f2d] transition-colors">
+                    {project.title}
+                  </h3>
                   <p className="mb-3 text-sm leading-relaxed text-[#c8c7c4]">
                     {project.description}
                   </p>

@@ -1,6 +1,6 @@
 const journeyContent = {
-  breadcrumb: "Perjalanan",
-  heading: "Perjalanan Saya",
+  breadcrumb: 'Perjalanan',
+  heading: 'Perjalanan Saya',
   timeline: [
     {
       date: '2023',
@@ -30,7 +30,7 @@ const journeyContent = {
         'Terus memperdalam kemampuan di bidang web development, mengeksplorasi teknologi baru, serta mengembangkan kreativitas melalui fotografi dan berbagai proyek yang dikerjakan.',
       active: true,
     },
-  ]
+  ],
 };
 
 const breadcrumb = journeyContent.breadcrumb;
@@ -45,7 +45,9 @@ export default function JourneySection() {
           <span className="block text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">
             {breadcrumb}
           </span>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl font-headline">{heading}</h2>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl font-headline">
+            {heading}
+          </h2>
         </div>
         <div className="space-y-8">
           {timeline.map((item) => (
@@ -61,7 +63,9 @@ export default function JourneySection() {
                   {item.date}
                 </span>
                 <h3 className="mt-1 text-lg sm:text-xl font-bold text-white">{item.title}</h3>
-                <p className="mt-1 max-w-2xl text-sm text-[#c8c7c4] leading-relaxed">{item.description}</p>
+                <p className="mt-1 max-w-2xl text-sm text-[#c8c7c4] leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}

@@ -7,7 +7,8 @@ import PhotoGridItem from '../_components/PhotoGridItem';
 
 export const metadata = genPageMetadata({
   title: 'Photography Portfolio',
-  description: 'Cinematic visual stories, shadows, and architectural long-exposure night photography.',
+  description:
+    'Cinematic visual stories, shadows, and architectural long-exposure night photography.',
 });
 
 const PhotographyPage: FC = () => {
@@ -31,20 +32,17 @@ const PhotographyPage: FC = () => {
             </h1>
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#c8c7c4] md:text-base">
-            Menjelajahi keindahan visual melalui pencahayaan sinematik, komposisi, dan penyuntingan profesional.
+            Menjelajahi keindahan visual melalui pencahayaan sinematik, komposisi, dan penyuntingan
+            profesional.
           </p>
         </div>
 
         {/* Photography Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {photos.length > 0 ? (
-            photos.map((photo) => (
-              <PhotoGridItem key={photo.id} photo={photo} />
-            ))
+            photos.map((photo) => <PhotoGridItem key={photo.id} photo={photo} />)
           ) : (
-            <div className="col-span-full text-center py-20 text-[#c8c7c4]">
-              Belum ada foto
-            </div>
+            <div className="col-span-full text-center py-20 text-[#c8c7c4]">Belum ada foto</div>
           )}
         </div>
       </div>

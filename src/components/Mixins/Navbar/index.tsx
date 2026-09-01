@@ -43,7 +43,13 @@ const NavbarLink: FC<{ link: NavLinkItem; isActive: boolean; onClick?: () => voi
   return (
     <li className="group relative">
       {isExternal ? (
-        <a href={link.path} target="_blank" rel="noreferrer" className={linkClassName} onClick={onClick}>
+        <a
+          href={link.path}
+          target="_blank"
+          rel="noreferrer"
+          className={linkClassName}
+          onClick={onClick}
+        >
           <span className="relative z-10">{link.title}</span>
         </a>
       ) : (

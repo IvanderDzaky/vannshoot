@@ -4,9 +4,10 @@ import type { Route } from 'next';
 import { ArrowRight } from 'lucide-react';
 
 const contactContent = {
-  heading: "Tertarik untuk Berkolaborasi?",
-  subheading: "Saya terbuka untuk proyek pengembangan web, kebutuhan dokumentasi fotografi, atau kolaborasi kreatif lainnya.",
-  cta: "Hubungi Saya"
+  heading: 'Tertarik untuk Berkolaborasi?',
+  subheading:
+    'Saya terbuka untuk proyek pengembangan web, kebutuhan dokumentasi fotografi, atau kolaborasi kreatif lainnya.',
+  cta: 'Hubungi Saya',
 };
 
 const heading = contactContent.heading;

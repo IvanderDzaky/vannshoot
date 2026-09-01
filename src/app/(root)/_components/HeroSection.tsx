@@ -2,13 +2,14 @@ import type { Route } from 'next';
 import Link from 'next/link';
 
 const heroContent = {
-  badge: "Frontend Developer",
-  title: "Ivander",
-  titleHighlight: "Dzaky Khairullah",
-  description: "Halo, saya Ivan — mahasiswa Informatika Telkom University Bandung yang tertarik pada pengembangan web dan fotografi. Saya suka mengubah ide menjadi pengalaman digital yang simpel, nyaman digunakan, dan punya karakter. Di luar coding, saya juga mengabadikan berbagai cerita melalui VannShoot.",
-  cta: "Lihat Portofolio",
-  projectName: "VANNSHOOT",
-  role: "Frontend"
+  badge: 'Frontend Developer',
+  title: 'Ivander',
+  titleHighlight: 'Dzaky Khairullah',
+  description:
+    'Halo, saya Ivan — mahasiswa Informatika Telkom University Bandung yang tertarik pada pengembangan web dan fotografi. Saya suka mengubah ide menjadi pengalaman digital yang simpel, nyaman digunakan, dan punya karakter. Di luar coding, saya juga mengabadikan berbagai cerita melalui VannShoot.',
+  cta: 'Lihat Portofolio',
+  projectName: 'VANNSHOOT',
+  role: 'Frontend',
 };
 
 const badge = heroContent.badge;

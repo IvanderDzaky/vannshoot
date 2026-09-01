@@ -29,7 +29,9 @@ const ProjectGridItem: FC<Props> = ({ project }) => {
           <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#fe7f2d] transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="mb-6 text-sm leading-7 text-[#c8c7c4] line-clamp-2">{project.description}</p>
+          <p className="mb-6 text-sm leading-7 text-[#c8c7c4] line-clamp-2">
+            {project.description}
+          </p>
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
               <span

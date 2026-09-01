@@ -38,13 +38,9 @@ const ContentsPage: FC = () => {
         {/* Contents Grid */}
         <div className="grid gap-8 md:grid-cols-2">
           {contents.length > 0 ? (
-            contents.map((item) => (
-              <ContentGridItem key={item.id} item={item} />
-            ))
+            contents.map((item) => <ContentGridItem key={item.id} item={item} />)
           ) : (
-            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">
-              Belum ada konten
-            </div>
+            <div className="col-span-2 text-center py-20 text-[#c8c7c4]">Belum ada konten</div>
           )}
         </div>
       </div>

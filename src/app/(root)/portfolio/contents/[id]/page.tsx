@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const item = contents.find((c) => c.id === id);
   if (!item) return { title: 'Content Not Found' };
-  
+
   return {
     title: `${item.title} - Vannshoot Creative Content`,
     description: item.description,
@@ -59,13 +59,13 @@ export default async function ContentDetailPage({ params }: Props) {
               </h1>
             </div>
 
-            <p className="text-lg leading-relaxed text-[#c8c7c4]">
-              {item.description}
-            </p>
+            <p className="text-lg leading-relaxed text-[#c8c7c4]">{item.description}</p>
 
             {item.details && (
               <div className="rounded-2xl border border-white/5 bg-[#111419] p-6 text-sm leading-7 text-[#d8d7d4]">
-                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Production Process</h4>
+                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">
+                  Production Process
+                </h4>
                 <p>{item.details}</p>
               </div>
             )}

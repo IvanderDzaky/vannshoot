@@ -12,10 +12,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const item = photos.find((p) => p.id === id);
   if (!item) return { title: 'Photo Not Found' };
-  
+
   return {
     title: `${item.title} - Vannshoot Photography`,
-    description: item.details || 'Cinematic lighting, architecture, and professional color grading.',
+    description:
+      item.details || 'Cinematic lighting, architecture, and professional color grading.',
   };
 }
 
@@ -61,7 +62,9 @@ export default async function PhotoDetailPage({ params }: Props) {
 
             {item.details && (
               <div className="rounded-2xl border border-white/5 bg-[#111419] p-6 text-sm leading-7 text-[#d8d7d4]">
-                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">Details / Vision</h4>
+                <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-[11px]">
+                  Details / Vision
+                </h4>
                 <p>{item.details}</p>
               </div>
             )}

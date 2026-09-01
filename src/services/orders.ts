@@ -62,23 +62,51 @@ export async function getOrders(page: number = 1, limit: number = 10, search: st
 }
 
 /**
- * Membuat order baru untuk simulasi checkout gambar berbayar dari portfolio
+ * Membuat order baru untuk checkout gambar berbayar dari portfolio dengan perhitungan harga server-side
  */
 export async function createSimulatedOrder(data: {
   name_customer: string;
   email_customer: string;
   phone_customer: string;
   portfolioId: string;
-  price_per_unit: number;
-  total_price: number;
-  imageUrl: string;
+  imageUrl?: string;
+  quantity?: number;
 }) {
   try {
-    // Cari record PortfolioImage berdasarkan image path
+    if (!data.name_customer || !data.email_customer || !data.phone_customer || !data.portfolioId) {
+      return { success: false, error: 'Data pembeli dan portfolio wajib diisi.' };
+    }
+
+    const portfolio = await prisma.portfolio.findUnique({
+      where: { id: data.portfolioId },
+      select: { id: true, price: true, title: true },
+    });
+
+    if (!portfolio) {
+      return { success: false, error: 'Portfolio tidak ditemukan.' };
+    }
+
+    const pricePerUnit = portfolio.price ?? 0;
+    const quantity = data.quantity && data.quantity > 0 ? data.quantity : 1;
+
+    // Ambil order setting publik untuk menghitung biaya layanan jika ada
+    const settingResult = await prisma.orderSetting.findFirst();
+    let serviceFee = 0;
+    if (settingResult?.serviceCharge && settingResult.value) {
+      if (settingResult.serviceType === 'PERCENTAGE') {
+        serviceFee = (pricePerUnit * quantity * settingResult.value) / 100;
+      } else {
+        serviceFee = settingResult.value;
+      }
+    }
+
+    const totalPrice = pricePerUnit * quantity + serviceFee;
+
+    // Cari record PortfolioImage berdasarkan image path jika ada
     let portfolioImageId: string | null = null;
     if (data.imageUrl) {
       const imgRecord = await prisma.portfolioImage.findFirst({
-        where: { image: data.imageUrl },
+        where: { image: data.imageUrl, portfolioId: data.portfolioId },
       });
       if (imgRecord) {
         portfolioImageId = imgRecord.id;
@@ -88,15 +116,15 @@ export async function createSimulatedOrder(data: {
     // Buat data order
     const order = await prisma.order.create({
       data: {
-        name_customer: data.name_customer,
-        email_customer: data.email_customer,
-        phone_customer: data.phone_customer,
+        name_customer: data.name_customer.trim(),
+        email_customer: data.email_customer.trim().toLowerCase(),
+        phone_customer: data.phone_customer.trim(),
         portfolioId: data.portfolioId,
-        price_per_unit: data.price_per_unit,
-        total_price: data.total_price,
+        price_per_unit: pricePerUnit,
+        total_price: totalPrice,
         status: 'PENDING',
         type: 'PRODUCT',
-        quantity: 1,
+        quantity: quantity,
         ...(portfolioImageId
           ? {
               orderImages: {
@@ -109,10 +137,10 @@ export async function createSimulatedOrder(data: {
       },
     });
 
-    return { success: true, orderId: order.id };
+    return { success: true, orderId: order.id, totalPrice, pricePerUnit, serviceFee };
   } catch (error) {
-    console.error('Create Simulated Order Error:', error);
-    return { success: false, error: 'Gagal membuat order simulasi.' };
+    console.error('Create Order Error:', error);
+    return { success: false, error: 'Gagal membuat order.' };
   }
 }
 
