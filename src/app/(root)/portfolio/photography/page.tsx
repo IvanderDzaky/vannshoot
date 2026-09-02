@@ -6,7 +6,7 @@ import { photos } from '../_data';
 import PhotoGridItem from '../_components/PhotoGridItem';
 
 export const metadata = genPageMetadata({
-  title: 'Photography Portfolio',
+  title: 'Portofolio Fotografi',
   description:
     'Cinematic visual stories, shadows, and architectural long-exposure night photography.',
 });

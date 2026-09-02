@@ -2,14 +2,15 @@ import type { Route } from 'next';
 import Link from 'next/link';
 
 const heroContent = {
-  badge: 'Frontend Developer',
+  badge: 'Full-Stack Web Developer',
   title: 'Ivander',
   titleHighlight: 'Dzaky Khairullah',
   description:
-    'Halo, saya Ivan — mahasiswa Informatika Telkom University Bandung yang tertarik pada pengembangan web dan fotografi. Saya suka mengubah ide menjadi pengalaman digital yang simpel, nyaman digunakan, dan punya karakter. Di luar coding, saya juga mengabadikan berbagai cerita melalui VannShoot.',
+    'Halo, saya Ivan — mahasiswa Informatika Telkom University Bandung yang fokus pada pengembangan web dan fotografi. Saya senang mengubah ide menjadi aplikasi web yang fungsional, nyaman digunakan, dan punya karakter. Di luar coding, saya juga menyalurkan sisi kreatif melalui fotografi bersama VannShoot.',
   cta: 'Lihat Portofolio',
   projectName: 'VANNSHOOT',
-  role: 'Frontend',
+  role: 'Full-Stack',
+  roleSubtitle: 'Web Developer',
 };
 
 const badge = heroContent.badge;
@@ -19,6 +20,7 @@ const description = heroContent.description;
 const cta = heroContent.cta;
 const projectName = heroContent.projectName;
 const role = heroContent.role;
+const roleSubtitle = heroContent.roleSubtitle;
 
 export default function HeroSection() {
   return (
@@ -57,7 +59,7 @@ export default function HeroSection() {
           </div>
           <div className="absolute -top-10 -right-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block z-20 pointer-events-none">
             <p className="font-label text-xs uppercase tracking-[0.3em] text-[#fe7f2d]">{role}</p>
-            <p className="mt-1 text-sm font-semibold text-white">{role.toLowerCase()}</p>
+            <p className="mt-1 text-sm font-semibold text-white">{roleSubtitle}</p>
           </div>
           <div
             className="absolute bottom-10 -left-10 hidden rounded-2xl border border-white/10 bg-[#111419]/75 p-6 shadow-2xl shadow-black/40 animate-bounce-slow md:block z-20 pointer-events-none"

@@ -19,7 +19,7 @@ export default function ContactSection() {
     <section id="contact" className="py-12 md:py-16">
       <div className="mx-auto max-w-330 px-6">
         <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8 md:p-12">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fe7f2d]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-[#fe7f2d]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           <div className="relative z-10 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white font-headline">
               {heading}

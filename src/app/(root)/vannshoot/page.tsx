@@ -81,7 +81,7 @@ const VannShootPage: FC<Props> = async ({ searchParams }) => {
       <section className="pb-24 px-6">
         <div className="mx-auto max-w-300">
           <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111419] p-8 sm:p-12 text-center space-y-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#fe7f2d]/10 via-transparent to-[#fe7f2d]/5 opacity-60" />
+            <div className="absolute inset-0 bg-[#fe7f2d]/5 opacity-60" />
             <div className="relative z-10 space-y-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-headline">
                 Butuh Sesi Fotografi Khusus atau Penawaran Paket?

@@ -6,28 +6,28 @@ const journeyContent = {
       date: '2023',
       title: 'Memulai Studi Informatika di Telkom University',
       description:
-        'Memulai perjalanan di bidang Informatika dengan mempelajari dasar-dasar pemrograman, pengembangan perangkat lunak, dan teknologi digital.',
+        'Memulai perjalanan di bidang Informatika dengan mempelajari dasar pemrograman, pengembangan perangkat lunak, dan berbagai konsep dasar teknologi.',
       active: false,
     },
     {
       date: '2024',
-      title: 'Mendalami Web Development dan Fotografi',
+      title: 'Mulai Fokus pada Web Development dan Fotografi',
       description:
-        'Mulai berfokus pada pengembangan web, khususnya frontend, sekaligus mengembangkan kemampuan fotografi melalui berbagai kegiatan dan pengalaman.',
+        'Mulai mendalami pengembangan web, terutama di sisi frontend, sekaligus mengembangkan kemampuan fotografi melalui berbagai kegiatan dan pengalaman.',
       active: false,
     },
     {
       date: '2025',
-      title: 'Mengembangkan Proyek dan Pengalaman',
+      title: 'Berkembang ke Full-Stack Web Development',
       description:
-        'Mengerjakan berbagai proyek pengembangan web untuk memperkuat kemampuan teknis, sekaligus terus mengembangkan pengalaman dalam fotografi, mulai dari potret hingga dokumentasi berbagai kegiatan.',
+        'Mulai mengembangkan aplikasi web secara lebih menyeluruh, tidak hanya dari sisi frontend, tetapi juga backend, API, autentikasi, dan pengelolaan database. Di saat yang sama, terus mengembangkan kemampuan fotografi melalui berbagai sesi dan dokumentasi kegiatan.',
       active: false,
     },
     {
       date: 'Sekarang',
-      title: 'Terus Belajar dan Berkembang',
+      title: 'Memperdalam Full-Stack Development',
       description:
-        'Terus memperdalam kemampuan di bidang web development, mengeksplorasi teknologi baru, serta mengembangkan kreativitas melalui fotografi dan berbagai proyek yang dikerjakan.',
+        'Terus mengembangkan kemampuan sebagai full-stack web developer dengan mengeksplorasi teknologi dan pendekatan baru dalam membangun aplikasi web. Fotografi juga tetap menjadi bagian dari perjalanan kreatif melalui VannShoot.',
       active: true,
     },
   ],

@@ -1,7 +1,7 @@
 const aboutContent = {
   heading: 'Tentang Saya',
   description:
-    'Saya mahasiswa Informatika Telkom University Bandung dengan fokus utama pada frontend development. Saya senang membangun website yang tidak hanya berfungsi dengan baik, tetapi juga nyaman dilihat dan digunakan. Saat ini saya banyak bekerja dengan React, Next.js, TypeScript, dan Tailwind CSS sambil terus mendalami UI/UX. Selain dunia teknologi, fotografi menjadi ruang kreatif saya untuk menangkap cerita, momen, dan ekspresi melalui VannShoot.',
+    'Saya mahasiswa Informatika Telkom University Bandung yang fokus pada full-stack web development. Saya terbiasa mengembangkan aplikasi web dari sisi frontend hingga backend, mulai dari membangun antarmuka, mengembangkan API, mengelola autentikasi, hingga mengintegrasikan database. Dalam pengembangan web, saya banyak menggunakan React, Next.js, TypeScript, Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya juga terus mendalami UI/UX agar aplikasi yang saya buat tidak hanya berjalan dengan baik, tetapi juga nyaman dan mudah digunakan. Selain pengembangan web, fotografi menjadi ruang kreatif saya untuk menangkap berbagai momen, cerita, dan ekspresi melalui VannShoot.',
 };
 
 const heading = aboutContent.heading;

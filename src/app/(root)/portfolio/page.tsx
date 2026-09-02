@@ -7,7 +7,7 @@ import { categories } from './_data';
 import CategoryCard from './_components/CategoryCard';
 
 export const metadata = genPageMetadata({
-  title: 'Portfolio Categories',
+  title: 'Kategori Portofolio',
   description:
     'Explore Vannshoot creative portfolios including web development projects, photography, and creative contents.',
 });
@@ -22,7 +22,7 @@ const PortfolioPage: FC = () => {
 
         <div className="relative z-10 mx-auto max-w-300 space-y-6 text-center">
           <span className="block text-[14px] uppercase tracking-[0.35em] text-[#fe7f2d] font-label">
-            Portfolio
+            Portofolio
           </span>
           <h1 className="mx-auto max-w-4xl text-3xl md:text-5xl lg:text-[56px] font-bold leading-tight text-white font-headline">
             Karya & Proyek Kreatif Pilihan
@@ -49,7 +49,7 @@ const PortfolioPage: FC = () => {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-330 px-6">
           <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8 md:p-12">
-            <div className="absolute inset-0 bg-linear-to-br from-[#fe7f2d]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-[#fe7f2d]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <div className="relative z-10 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white font-headline">
                 Siap Memulai Proyek?

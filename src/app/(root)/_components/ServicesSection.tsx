@@ -5,15 +5,15 @@ const servicesContent = {
   heading: 'Apa Saya Lakukan',
   services: [
     {
-      title: 'Pengembangan Web',
+      title: 'Full-Stack Web Development',
       description:
-        'Membangun aplikasi web responsif, skalabel, dan modern menggunakan React, Next.js, TypeScript, dan Tailwind CSS.',
+        'Mengembangkan aplikasi web dari frontend hingga backend, mulai dari antarmuka pengguna, API, autentikasi, hingga integrasi dan pengelolaan database.',
       icon: TerminalIcon,
     },
     {
       title: 'Fotografi',
       description:
-        'Menciptakan portret, sesesi wisuda, dan acara dengan gaya visual yang bersih, sinematik, dan abadi.',
+        'Mengabadikan berbagai momen melalui fotografi potret, wisuda, dan dokumentasi acara dengan pendekatan visual yang natural dan berkarakter.',
       icon: CameraIcon,
     },
     {

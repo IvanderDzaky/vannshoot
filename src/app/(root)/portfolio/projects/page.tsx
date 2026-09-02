@@ -6,7 +6,7 @@ import { projects } from '../_data';
 import ProjectGridItem from '../_components/ProjectGridItem';
 
 export const metadata = genPageMetadata({
-  title: 'Projects Portfolio',
+  title: 'Portofolio Proyek',
   description: 'Web development, apps, and technical architecture engineered by Vannshoot.',
 });
 

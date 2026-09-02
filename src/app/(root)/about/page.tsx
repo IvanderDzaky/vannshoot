@@ -7,7 +7,7 @@ import { genPageMetadata } from '@/app/seo';
 export const metadata = genPageMetadata({
   title: 'Tentang Saya',
   description:
-    'Ivander Dzaky Khairullah — Front-End Developer & Mahasiswa Informatika Universitas Telkom dengan keahlian dalam web development dan fotografi.',
+    'Ivander Dzaky Khairullah — Full-Stack Web Developer dan mahasiswa Informatika Telkom University dengan ketertarikan pada web development dan fotografi.',
 });
 
 interface ExperienceItem {
@@ -142,8 +142,10 @@ const experiences: ExperienceItem[] = [
     period: '20 Jul 2026 – 28 Aug 2026',
     location: 'Surabaya, Jawa Timur, Indonesia · On-site',
     descriptions: [
-      'Mengembangkan website monitoring dan analisis trafik jaringan berbasis AI memanfaatkan data Observium untuk otomatisasi wawasan performa jaringan.',
-      'Mengoptimalkan antarmuka dan responsivitas aplikasi web untuk efisiensi pemantauan tim teknis.',
+      'Mengembangkan website monitoring dan analisis trafik jaringan berbasis Artificial Intelligence dengan memanfaatkan data Observium.',
+      'Mengembangkan sistem yang mencakup proses analisis data, penyimpanan hasil analisis, API, dashboard monitoring, dan antarmuka pengguna.',
+      'Mengintegrasikan analisis berbasis AI untuk membantu mengidentifikasi kondisi dan anomali trafik jaringan.',
+      'Mengembangkan dashboard agar hasil monitoring dan analisis dapat dilihat dengan lebih mudah oleh tim teknis.',
     ],
   },
   {
@@ -153,10 +155,10 @@ const experiences: ExperienceItem[] = [
     period: 'Des 2024 – Sekarang',
     location: 'Bandung, Jawa Barat, Indonesia',
     descriptions: [
-      'Merencanakan dan melaksanakan sesi fotografi untuk acara universitas, lokakarya, dan aktivitas organisasi.',
-      'Mengabadikan foto berkualitas tinggi menggunakan peralatan fotografi profesional.',
+      'Terlibat dalam berbagai kegiatan fotografi dan dokumentasi organisasi.',
+      'Mengabadikan kegiatan, acara, dan berbagai sesi fotografi.',
       'Melakukan penyuntingan foto menggunakan Adobe Lightroom dan Adobe Photoshop.',
-      'Berkontribusi dalam penyusunan konsep kreatif untuk narasi visual dan pencitraan merek organisasi.',
+      'Berkontribusi dalam pengembangan konsep dan storytelling visual untuk kebutuhan organisasi.',
     ],
   },
   {
@@ -166,10 +168,10 @@ const experiences: ExperienceItem[] = [
     period: 'Okt 2025 – Des 2025',
     location: 'Bandung, Jawa Barat, Indonesia · On-site',
     descriptions: [
-      'Memimpin Divisi Hubungan Masyarakat dalam perencanaan dan eksekusi strategi komunikasi acara.',
-      'Mengoordinasikan komunikasi internal dan eksternal antara peserta, pembicara, dan panitia.',
-      'Mengelola aktivitas promosi serta penyebaran informasi melalui berbagai saluran komunikasi.',
-      'Berkolaborasi lintas divisi untuk memastikan kelancaran dan keberhasilan pelaksanaan acara.',
+      'Memimpin Divisi Hubungan Masyarakat selama pelaksanaan Kaderisasi Dasar 2025.',
+      'Mengoordinasikan komunikasi antara peserta, panitia, dan pihak terkait.',
+      'Mengelola penyampaian informasi dan kebutuhan komunikasi selama kegiatan.',
+      'Berkolaborasi dengan divisi lain untuk mendukung kelancaran pelaksanaan acara.',
     ],
   },
   {
@@ -179,7 +181,8 @@ const experiences: ExperienceItem[] = [
     period: 'Jan 2026 – Sekarang',
     location: 'Bandung, Jawa Barat, Indonesia · Hybrid',
     descriptions: [
-      'Aktif berpartisipasi dalam program dan aktivitas komunitas Telkom University Esports, mengasah kerja sama tim dan wawasan industri e-sports.',
+      'Berpartisipasi dalam kegiatan dan program komunitas Telkom University Esports.',
+      'Terlibat dalam lingkungan komunitas yang mendorong kolaborasi dan kerja sama tim.',
     ],
   },
 ];
@@ -214,53 +217,56 @@ const educations: EducationItem[] = [
     degree: 'S1 Informatika',
     period: '2023 – 2027',
     description:
-      'Fokus studi pada Sistem Manajemen Basis Data, Node.js, Web Development, dan teknologi perangkat lunak modern.',
+      'Mempelajari pengembangan perangkat lunak, basis data, web development, jaringan komputer, Artificial Intelligence, serta berbagai teknologi yang mendukung pengembangan aplikasi modern.',
   },
   {
     institution: 'SMK Telkom Malang',
-    degree: 'Teknik Komputer dan Jaringan / Rekayasa Perangkat Lunak',
+    degree: 'Rekayasa Perangkat Lunak (RPL)',
     period: 'Jul 2020 – Mei 2023',
     description:
-      'Pendidikan dasar bidang teknologi informasi dengan fokus pada fondasi pengembangan perangkat lunak.',
+      'Mempelajari dasar pengembangan perangkat lunak, pemrograman, basis data, pengembangan web, serta konsep dasar dalam membangun dan mengembangkan aplikasi.',
   },
 ];
 
 const webDevCapabilities: string[] = [
-  'Frontend Modern — React, Next.js, TypeScript, Tailwind CSS',
-  'Backend & Data — Node.js, FastAPI, MySQL, PostgreSQL',
-  'Alat & Alur Kerja — GitHub, kontrol versi, integrasi API',
-  'Penyelesaian Masalah — Algoritma, pemantauan sistem, clean code',
+  'Frontend — React, Next.js, TypeScript, Tailwind CSS',
+  'Backend & API — Node.js, FastAPI, REST API',
+  'Database — MySQL, PostgreSQL',
+  'Tools & Workflow — Git, GitHub, Docker, integrasi API',
+  'UI/UX — Responsive design, usability, dan konsistensi antarmuka',
 ];
 
 const photographyCapabilities: string[] = [
-  'Fotografi Acara — Dokumentasi kegiatan universitas dan komunitas',
-  'Penyuntingan Foto — Adobe Lightroom, Adobe Photoshop',
-  'Desain & Pencitraan Merek — Materi promosi dan konten visual',
-  'Narasi Visual — Konsistensi estetika visual dan konsep kreatif',
+  'Fotografi — Potret, wisuda, acara, dan dokumentasi kegiatan',
+  'Photo Editing — Adobe Lightroom dan Adobe Photoshop',
 ];
 
 const commitmentItems: string[] = [
-  'Terus mengasah keahlian teknis dan mengikuti perkembangan teknologi modern',
-  'Menulis kode yang bersih, terstruktur, dan mudah dikolaborasikan',
-  'Berkontribusi pada proyek digital yang memberikan dampak nyata',
-  'Mengembangkan keahlian interpersonal seperti kepemimpinan dan komunikasi',
+  'Terus mempelajari teknologi dan pendekatan baru dalam pengembangan software',
+  'Menulis kode yang terstruktur, mudah dipahami, dan mudah dikembangkan',
+  'Membangun aplikasi yang fungsional dan memberikan manfaat nyata',
+  'Mengembangkan kemampuan komunikasi, kolaborasi, dan kepemimpinan',
 ];
 
 const AboutPage: FC = () => {
   return (
     <main className="min-h-screen bg-[#0b0f11] text-[#e0e2e6]">
-      {/* Header Section */}
-      <section className="pt-28 pb-6 px-6">
-        <div className="mx-auto max-w-330 space-y-4">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#fe7f2d]">Tentang</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-headline text-white leading-tight">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden px-6 py-28">
+        <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-[#fe7f2d]/10 blur-[120px]" />
+        <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-[#afcade]/10 blur-[120px]" />
+        <div className="relative z-10 mx-auto max-w-300 space-y-5 text-center">
+          <span className="block text-[14px] uppercase tracking-[0.35em] text-[#fe7f2d] font-label">
+            Tentang Saya
+          </span>
+          <h1 className="mx-auto max-w-4xl text-3xl md:text-5xl lg:text-[56px] font-bold leading-tight text-white font-headline">
             Ivander Dzaky Khairullah
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed text-[#c8c7c4] max-w-3xl">
-            <strong className="text-white">Front-End Developer</strong> & Mahasiswa S1 Informatika
-            di Universitas Telkom
+          <p className="mx-auto max-w-2xl text-base leading-7 text-[#c8c7c4] md:text-lg">
+            <strong className="text-white">Full-Stack Web Developer</strong> & Mahasiswa S1
+            Informatika di Universitas Telkom
           </p>
-          <div className="flex items-center gap-2 text-sm text-[#9e9d9a] pt-1">
+          <div className="flex items-center justify-center gap-2 pt-1 text-sm text-[#9e9d9a]">
             <MapPin className="w-4 h-4 text-[#fe7f2d] shrink-0" aria-hidden="true" />
             <span>Malang, Jawa Timur, Indonesia</span>
           </div>
@@ -268,45 +274,44 @@ const AboutPage: FC = () => {
       </section>
 
       {/* Main About Section */}
-      <section className="px-6 pt-2 pb-10 md:pt-4 md:pb-14">
-        <div className="mx-auto max-w-330 space-y-12">
+      <section className="px-6 pb-28">
+        <div className="mx-auto max-w-300 space-y-8">
           {/* Ringkasan Profil */}
-          <div className="rounded-3xl border border-white/10 bg-[#111419] p-6 sm:p-8 md:p-12">
+          <div className="rounded-3xl border border-white/10 bg-[#111419] p-8">
             <div className="space-y-5 text-base leading-relaxed text-[#c8c7c4]">
               <p>
-                Saya adalah mahasiswa S1 Informatika di Telkom University dengan fokus utama pada
-                Frontend Development dan Fotografi. Saya memiliki ketertarikan dalam membangun
-                pengalaman digital yang modern, responsif, dan mudah digunakan dengan tetap
-                memperhatikan kualitas visual serta detail antarmuka.
+                Saya adalah mahasiswa S1 Informatika di Telkom University yang fokus pada full-stack
+                web development dan memiliki ketertarikan pada fotografi. Saya senang membangun
+                aplikasi web secara menyeluruh, mulai dari antarmuka yang digunakan pengguna hingga
+                backend dan pengelolaan data di baliknya.
               </p>
               <p>
-                Dalam pengembangan web, saya terbiasa menggunakan teknologi seperti React, Next.js,
-                TypeScript, Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya terus
-                mengembangkan kemampuan dalam frontend development sekaligus memperluas pemahaman
-                mengenai backend, API, basis data, UI/UX, serta penerapan teknologi Artificial
-                Intelligence dalam pengembangan aplikasi.
+                Dalam pengembangan web, saya terbiasa menggunakan React, Next.js, TypeScript,
+                Tailwind CSS, Node.js, FastAPI, MySQL, dan PostgreSQL. Saya juga terus mengembangkan
+                kemampuan dalam API, autentikasi, database, UI/UX, deployment, serta pemanfaatan
+                Artificial Intelligence dalam pengembangan aplikasi.
               </p>
               <p>
-                Di luar bidang teknologi, saya aktif dalam kegiatan fotografi dan berbagai kegiatan
-                organisasi maupun kepanitiaan kampus. Fotografi membantu saya mengembangkan kepekaan
-                terhadap komposisi, warna, pencahayaan, detail, dan storytelling visual, yang juga
-                memengaruhi cara saya melihat dan merancang sebuah antarmuka digital.
+                Di luar dunia teknologi, fotografi menjadi ruang kreatif saya untuk mengeksplorasi
+                komposisi, warna, pencahayaan, dan storytelling visual. Pengalaman tersebut juga
+                membuat saya lebih memperhatikan detail dan pengalaman pengguna ketika membangun
+                sebuah produk digital.
               </p>
               <p>
-                Perpaduan antara kemampuan teknis dan kreativitas visual menjadi dasar pendekatan
-                saya dalam berkarya. Saya percaya bahwa pengalaman digital yang baik tidak hanya
-                harus berfungsi dengan baik, tetapi juga intuitif, menarik secara visual, dan
-                memberikan pengalaman yang nyaman bagi pengguna.
+                Bagi saya, kemampuan teknis dan kreativitas visual dapat berjalan beriringan. Saya
+                ingin membangun aplikasi yang tidak hanya bekerja dengan baik, tetapi juga nyaman
+                digunakan dan memiliki tampilan yang menarik.
               </p>
             </div>
           </div>
 
           {/* Kapabilitas Utama */}
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-6 sm:p-8 space-y-4">
+            <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-8 space-y-4">
               <h3 className="text-2xl font-bold font-headline text-white">Web Development</h3>
               <p className="text-sm text-[#c8c7c4]">
-                Keahlian utama dalam pengembangan aplikasi web modern:
+                Kemampuan dalam membangun dan mengembangkan aplikasi web dari frontend hingga
+                backend:
               </p>
               <ul className="space-y-3 text-sm text-[#c8c7c4]">
                 {webDevCapabilities.map((item, idx) => (
@@ -318,10 +323,10 @@ const AboutPage: FC = () => {
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-6 sm:p-8 space-y-4">
+            <div className="rounded-3xl border border-white/5 bg-[#111419]/50 p-8 space-y-4">
               <h3 className="text-2xl font-bold font-headline text-white">Fotografi & Desain</h3>
               <p className="text-sm text-[#c8c7c4]">
-                Keahlian dalam dokumentasi visual dan estetika media:
+                Kemampuan dalam fotografi dan pengolahan konten visual:
               </p>
               <ul className="space-y-3 text-sm text-[#c8c7c4]">
                 {photographyCapabilities.map((item, idx) => (
@@ -338,7 +343,7 @@ const AboutPage: FC = () => {
 
       {/* Pengalaman Profesional & Organisasi */}
       <section className="px-6 py-12 md:py-16 border-t border-white/5">
-        <div className="mx-auto max-w-330">
+        <div className="mx-auto max-w-300">
           <h2 className="text-3xl font-bold font-headline text-white mb-8 md:mb-10">
             Pengalaman Pengembangan & Organisasi
           </h2>
@@ -376,7 +381,7 @@ const AboutPage: FC = () => {
 
       {/* Skill & Sertifikasi */}
       <section className="px-6 py-12 md:py-16 bg-[#111419]/50">
-        <div className="mx-auto max-w-330">
+        <div className="mx-auto max-w-300">
           <h2 className="text-3xl font-bold font-headline text-white mb-8 md:mb-10">
             Keahlian & Sertifikasi
           </h2>
@@ -434,7 +439,7 @@ const AboutPage: FC = () => {
 
       {/* Pendidikan */}
       <section className="px-6 py-12 md:py-16">
-        <div className="mx-auto max-w-330">
+        <div className="mx-auto max-w-300">
           <h2 className="text-3xl font-bold font-headline text-white mb-8 md:mb-10">
             Riwayat Pendidikan
           </h2>
@@ -460,18 +465,22 @@ const AboutPage: FC = () => {
 
       {/* Visi & Komitmen */}
       <section className="px-6 py-12 md:py-16 border-t border-white/5">
-        <div className="mx-auto max-w-330">
-          <div className="rounded-3xl border border-white/5 bg-[#111419] p-6 sm:p-8 md:p-12 space-y-6">
+        <div className="mx-auto max-w-300">
+          <div className="rounded-3xl border border-white/5 bg-[#111419] p-8 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold font-headline text-white">
               Visi & Komitmen
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-[#c8c7c4]">
               <p>
-                Saya percaya bahwa pengembangan perangkat lunak bukan sekadar menulis baris kode,
-                melainkan menghadirkan solusi bernilai yang memudahkan pengguna. Kombinasi latar
-                belakang Informatika dan kreativitas dalam fotografi memungkinkan saya merancang
-                produk web yang tidak hanya andal secara teknis, tetapi juga nyaman digunakan secara
-                estetis.
+                Saya melihat pengembangan perangkat lunak sebagai proses membangun solusi yang dapat
+                digunakan untuk menyelesaikan kebutuhan nyata. Karena itu, saya terus mengembangkan
+                kemampuan tidak hanya pada sisi frontend, tetapi juga backend, database, API,
+                deployment, dan teknologi pendukung lainnya.
+              </p>
+              <p>
+                Fotografi tetap menjadi bagian dari sisi kreatif saya. Perpaduan antara teknologi
+                dan visual membantu saya melihat sebuah produk digital dari dua sisi: bagaimana
+                sistem tersebut bekerja dan bagaimana pengguna berinteraksi dengannya.
               </p>
               <div className="space-y-3 pt-2">
                 <p className="font-semibold text-white">Komitmen pengembangan saya:</p>
@@ -494,9 +503,9 @@ const AboutPage: FC = () => {
 
       {/* CTA Section */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-330 px-6">
-          <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8 md:p-12">
-            <div className="absolute inset-0 bg-linear-to-br from-[#fe7f2d]/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="mx-auto max-w-300 px-6">
+          <div className="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-8">
+            <div className="absolute inset-0 bg-[#fe7f2d]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <div className="relative z-10 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white font-headline">
                 Tertarik untuk Berkolaborasi?

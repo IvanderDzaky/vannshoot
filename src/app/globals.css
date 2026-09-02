@@ -50,9 +50,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at top left, rgba(254, 127, 45, 0.16), transparent 18%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 151, 0.12), transparent 16%);
+  background: #0b0f11;
   z-index: -1;
 }
 

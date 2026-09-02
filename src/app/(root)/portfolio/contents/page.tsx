@@ -6,7 +6,7 @@ import { contents } from '../_data';
 import ContentGridItem from '../_components/ContentGridItem';
 
 export const metadata = genPageMetadata({
-  title: 'Contents Portfolio',
+  title: 'Portofolio Konten',
   description: 'Digital production, video content, campaigns, and short films by Vannshoot.',
 });
 
